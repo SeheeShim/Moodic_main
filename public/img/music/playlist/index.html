@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>playlist</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://codepen.io/GreenSock/pen/xxmzBrw/fcaef74061bb7a76e5263dfc076c363e.css">
+    <script src="./js/script.js" defer></script>
+    <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/Draggable.min.js"></script>
+    <script src="https://assets.codepen.io/16327/InertiaPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.13/html-to-image.js"></script>
+    <link rel="shortcut icon" href="../icons8-cd-16.png">
+    <!-- 폰트어썸 -->
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+</head>
+<body>
+    <div id="poster" class="noise">
+    <!-- Logo -->
+    <a class="logo" href="https://gsap.com" target="_blank" rel="noopener">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+      viewBox="0 0 1108 362" style="enable-background:new 0 0 1108 362;" xml:space="preserve">
+    <style type="text/css">
+      .st0{fill:#FFF3DC;}
+    </style>
+    <path class="st0" d="M189,182.5l-2.5,4.5v175H100V187l-2.5-4.5L0,2.5h91.5L143,98l52-95.5h91.5L189,182.5z M476.4,88h-95v52h83.5v85
+      h-83.5v52h95v85h-180V3h180V88z M659.1,348c-15.3,9.3-32.2,14-50.5,14c-18.7,0-35.8-4.7-51.5-14c-15.3-9-27.7-21.2-37-36.5
+      c-9-15.7-13.5-32.8-13.5-51.5v-30.5h85V260c0,4.7,1.7,8.7,5,12c3.3,3.3,7.3,5,12,5c4.7,0,8.5-1.7,11.5-5c3.3-3.3,5-7.3,5-12V0h85
+      v260c0,18.7-4.7,35.8-14,51.5C687.1,326.8,674.7,339,659.1,348z M825,4.5V362h-85V4.5H825z M931.5,2.5L1021,194V2.5h86.5V362H1021
+      l-89.5-179.5V362H845V2.5H931.5z"/>
+    </svg>
+  </a>
+  <i class="fas fa-music"></i>
+
+  <!-- Smoooth Container -->
+  <div class="smoooth-container">
+    <div class="smoooth" aria-label="Rotating Smoooth letters">
+      <div class="letter" data-letter="S">S</div>
+      <div class="letter" data-letter="m">m</div>
+      <div class="letter" data-letter="o">o</div>
+      <div class="letter" data-letter="o">o</div>
+      <div class="letter" data-letter="o">o</div>
+      <div class="letter" data-letter="t">t</div>
+      <div class="letter" data-letter="h">h</div>
+    </div>
+  </div>
+
+  <!-- Flair Sticker -->
+  <div class="sticker flair" aria-hidden="true"></div>
+
+  <!-- Circle Background -->
+  <div class="circle" aria-hidden="true"></div>
+
+  <!-- UI Controls -->
+  <div class="controls">
+    <button id="pause" type="button" aria-label="Pause or Play Carousel">
+      <span class="label"></span>
+    </button>
+
+    <button id="screenshot" type="button" aria-label="Download Screenshot">
+      <span class="label"></span>
+    </button>
+
+    <button id="reroll" type="button" aria-label="Randomize Visuals">
+      <span class="label">&#x21bb;</span>
+    </button>
+  </div>
+</div>
+  <div class="icon">
+    <a href="../음악CD/index.html" class="next_cd"><img src="../123.png" alt=""></a>
+    <p class="CD">-CD-</p>
+    <a href="../물결흐름/index.html" class="next_wave"><img src="../icons8-disk-96.png" alt=""></a>
+    <p class="WAVE">WAVE</p>
+    <a href="../사운드클라우드/index.html" class="next_cloud"><img src="../icons8-cloud-music-96.png" alt=""></a>
+    <p class="soundcloud">sound <br>cloud</p>
+  </div>
+
+  <div class="menu">
+    <i class="fas fa-bars"></i>
+  </div>
+  <div class="menu_view">
+    <h2>MENU</h2>
+    <ul>
+      <li><a href="../playlist/index.html">smooth player</a></li>
+      <li><a href="../음악CD/index.html">CD playlist</a></li>
+      <li><a href="../물결흐름/index.html">wave : <br>물결 흐름 조정</a></li>
+      <li><a href="../사운드클라우드/index.html">사운드클라우드</a></li>
+    </ul>
+  </div>
+</body>
+</html>

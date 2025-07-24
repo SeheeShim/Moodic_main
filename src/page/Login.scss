@@ -1,0 +1,105 @@
+.login-wrap {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .login-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+
+    ul {
+      display: flex;
+      li {
+        padding: 10px;
+        img {
+          width: 18px;
+        }
+      }
+    }
+  }
+
+  .login-main {
+    width: 100%;
+    height: 100vh;
+    background: url('/img/ivory_bg.jpg') no-repeat center center / cover;
+    position: relative;
+    overflow: hidden;
+
+    .login-left img {
+      width: 350px;
+      position: absolute;
+      top: 287px;
+      left: 270px;
+    }
+
+    .login-form {
+      width: 413px;
+      height: 510px;
+      position: absolute;
+      top: 240px;
+      right: 439px;
+
+      fieldset {
+        border: 1px solid #222;
+        border-radius: 20px;
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        legend {
+          display: none;
+        }
+
+        .login-title img {
+          width: 121px;
+          height: 35px;
+          position: absolute;
+          top: 70px;
+          right: 143px;
+        }
+
+        .input-wrap {
+          position: absolute;
+          top: 160px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          width: 100%;
+          padding: 0 30px;
+
+          input {
+            padding: 10px;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid #ccc;
+          }
+
+          .submit-btn {
+            background: #000;
+            color: #fff;
+            padding: 10px;
+          }
+
+          .signup-link {
+            text-align: center;
+            padding-top: 40px;
+            color: blue;
+          }
+        }
+      }
+    }
+  }
+}

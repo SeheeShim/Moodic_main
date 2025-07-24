@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Barriecito&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Oi&family=Rubik+Bubbles&family=Rubik+Glitch&display=swap');
+*{
+    background-color: black;
+}
+h1{
+    color: #fff;
+    font-size: 50px;
+    font-family: "Abril Fatface", serif;
+    text-align: center;
+    padding: 50px;
+}
+.mySwiper .swiper-wrapper{
+    width: 100%;
+    height: 452px;
+    padding-bottom: 50px;
+}
+.swiper-slide{
+    width: 100%;
+    height: 452px;
+}
+.swiper-slide img{
+    width: 100%;
+    height:100%;
+}

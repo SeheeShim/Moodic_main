@@ -1,0 +1,139 @@
+*{box-sizing: border-box;}
+.scroll-section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url(../img/bg.jpg) no-repeat center center/cover;
+}
+.scroll-section1{
+    
+    padding: 150px; 
+    box-sizing: border-box;
+    h2{
+        line-height: 0;
+        margin: 0;
+    }
+    .Tit{
+        padding-left: 523px;
+    }
+    .medal{
+        position: absolute;
+        top:100px;
+        right: 300px;
+    }
+    .kendrickImgInfo{
+        display: flex;
+        margin-top: 150px;
+        .kendrickImg{margin-right: 50px;}
+        .kendrickInfo{
+            h3{}
+            h2{margin-bottom: 50px;}
+            .kendrickText{
+                .name{font-size: 20px;}
+                ul{
+                    li{}
+                }
+                .title{}
+            }
+        }
+    }
+    .ect{
+        position: absolute;
+        bottom:0px;
+        right: 80px;
+    }
+    
+}
+.scroll-section2{
+    .medal{
+        position: absolute;
+        top: 50px;
+        left: 300px;
+        padding: 20px;
+        
+    }
+    .ect{
+        position: absolute;
+        top: 200PX;
+        right: 300px;
+
+    }
+    .BeyonceImgInfo{
+        padding-top:400px;
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 300px;
+        .BeyonceInfo{
+            display: flex;
+            align-items: flex-end;
+            flex-direction: column;
+             padding-right: 70px;
+            h3{
+                margin: 0;
+                img{}
+            }
+            h2{}
+        }
+        .BeyonceText{
+           
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            width:900px;
+           
+            .name{}
+            ul{
+                li{letter-spacing: -1px; text-align: right; list-style: none;}
+            }
+            .title{}
+        }
+        .BeyonceImg{
+            img{
+                width: 500px;
+                height: 500px;
+            }
+        }
+    }
+}
+.scroll-section3{
+    
+    padding: 150px; 
+    box-sizing: border-box;
+
+    .medal{
+        position: absolute;
+        top:20px;
+        right: 300px;
+    }
+    .sabrinaImgInfo{
+        display: flex;
+        margin-top: 150px;
+        .sabrinaImg{margin-right: 50px;
+            img{
+                width: 500px;
+                height: 500px;
+            }
+        }
+        .sabrinaInfo{
+            h3{}
+            h2{margin-bottom: 50px;}
+            .sabrinaText{
+                .name{font-size: 20px;}
+                ul{
+                    li{}
+                }
+                .title{}
+            }
+        }
+    }
+    .ect{
+        position: absolute;
+        bottom:0px;
+        right: 80px;
+        img{
+            width: 200px;
+            height: 200px;
+        }
+    }
+    
+}

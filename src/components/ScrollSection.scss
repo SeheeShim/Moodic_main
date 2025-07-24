@@ -1,0 +1,44 @@
+*{margin: 0;padding: 0;}
+.scroll-section:first-child{
+  margin-top: 15rem;
+}
+
+/* 
+.scroll-section {
+  position: relative;
+  height: 500vh;
+  background: orangered;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  .text-area, .image-area {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s ease;
+  }
+
+  .visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .image-area {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+
+    
+    img {
+      width: 80%;
+      height: auto;
+      max-width: 600px;
+      border-radius: 1rem;
+    }
+    
+  }
+}
+ */

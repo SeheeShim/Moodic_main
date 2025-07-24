@@ -1,0 +1,108 @@
+*{margin: 0; padding: 0;}
+.footer {
+    width: 100%;
+    
+  background-color: orangered;
+  padding: 10rem 8rem;
+  font-family: 'Pretendard', sans-serif;
+  color: #333;
+
+  .footer__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+.newsletter-header{ 
+    span{
+        font-size: 32px;
+        font-weight: 800;
+    } 
+  .input-group{
+    padding: 20px;
+    input{
+        width: 35%;
+        padding: 30px 0;
+        font-size: 40px;
+        color: #fff;
+        border: none;
+        border-bottom: 2px dashed #fff;
+        background: none;
+    }
+    button{
+        background: none;
+        border: none;
+    }
+    }
+}
+img{
+    margin: 30px 0;
+    width: 60%;
+    height: auto;
+}
+
+
+
+  .footer__section {
+    flex: 1;
+
+    .label {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: #556b2f; // 카키 계열 포인트
+    }
+
+    p {
+      margin: 0.25rem 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    a {
+      color: #333;
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #6c8e2e;
+      }
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  .footer-bottom {
+    border-top: 1px solid #ffffff;
+    margin-top: 3rem;
+    padding-top: 1rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #ffffff;
+    .divider{
+        margin: 30px auto;
+        content: "";
+        width: 200px;
+        height: 10px;
+        background: #fff;
+        span{
+            color: #fff;
+        }
+        
+    }
+  }
+}
+
