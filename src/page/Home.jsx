@@ -1,16 +1,15 @@
 //moodic/src/page/Homejsx
 import React, { useRef } from 'react';
-/* import React from 'react'; */
 import Hero from '../components/Hero';
-/* import Preloader from '../components/Preloader'; */
 import ScrollSection from '../components/ScrollSection';
 import Player from '../components/Player';
-import Genre from '../page/Genre';
+import Genre from './Genre';
 import CountryChart from '../page/CountryChart';
-/* import Header from './components/Header'; */
 import Navigation from '../components/Navigation';
 import './Home.scss';
 import Main from '../components/Main';
+
+
 
 
 const Home = () => {
@@ -57,7 +56,6 @@ const Home = () => {
         <div ref={playerRef} className="player-section">
           <Player />
         </div>
-
       </div>
       
       {/* 다른 섹션들 */}

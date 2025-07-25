@@ -1,46 +1,65 @@
-.mainNav{
-  
+.mainNav {
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   height: 4rem;
-  background-color: white;
+  background: none;
   z-index: 999;
   display: flex;
   align-items: center;
   padding: 0 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   justify-content: space-between;
-  
-  .logo{
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+  &.scrolled {
+    background-color: #ffffff; 
+    /* box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5); */
+
+    .logo img {
+      /* filter: brightness(0) invert(1); */ // 로고가 흰색으로 보이게 필터 처리 예시
+      transition: filter 0.3s ease;
+    }
+
+    .mainNav_center button,
+    .mainNav_right a {
+      color: #f47a4b; // 스크롤 시 버튼 색상 변경
+      transition: color 0.3s ease;
+      &:hover {
+        color: lighten(#f47a4b, 10%);
+      }
+    }
+  }
+
+  .logo {
     border: none;
     background: none;
     cursor: pointer;
-    img{
+
+    img {
       width: 10rem;
       height: auto;
+      transition: filter 0.3s ease;
     }
   }
-  .mainNav_center{
-    
+
+  .mainNav_center {
     margin: 0 auto;
     padding: 0 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    li{
-      
+
+    li {
       list-style: none;
       text-decoration: none;
       color: #333;
-      
       position: relative;
-      
 
-      button{
+      button {
         padding: 4px 8px;
         border: none;
         background: none;
@@ -55,25 +74,11 @@
         }
       }
 
-    
-      .nav-link-bg {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        height: 2px;
-        width: 0%;
-        background: currentColor;
-        transition: width 0.3s;
-      }
-
-      &:hover .nav-link-bg {
-        width: 100%;
-      }
+      
     }
-  
   }
 
-  .mainNav_right{
+  .mainNav_right {
     margin-right: 10px;
     padding: 0 24px;
     display: flex;
@@ -82,106 +87,23 @@
     flex-wrap: wrap;
     gap: 10px;
 
-    li{
+    li {
       list-style: none;
-      
-      a{
+
+      a {
         text-decoration: none;
         color: #333;
         padding: 4px 8px;
-        border: none;
-        background: none;
         font-size: 1rem;
         font-weight: 800;
         transition: color 0.3s;
         cursor: pointer;
+
         &:hover {
           color: #f47a4b;
           font-weight: 800;
         }
-        
       }
     }
-
-    
   }
 }
-
-
-
-
-  .navigation-links {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-
-    @media (min-width: 768px) {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-  }
-
-  .mobile-links {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 12px;
-
-    @media (min-width: 768px) {
-      display: none;
-    }
-  }
-
-  .wrap-navigation-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-
-    .nav-link {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-      position: relative;
-      transition: color 0.3s;
-
-      &:hover {
-        color: #f47a4b;
-      }
-
-      .button-label {
-        padding: 4px 8px;
-      }
-
-      .nav-link-bg {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        height: 2px;
-        width: 0%;
-        background: currentColor;
-        transition: width 0.3s;
-      }
-
-      &:hover .nav-link-bg {
-        width: 100%;
-      }
-    }
-
-    .cta {
-      font-weight: 600;
-      color: #f47a4b;
-    }
-
-    .brand {
-      font-size: 1.2rem;
-      font-weight: 700;
-    }
-
-    .mobile-hidden {
-      display: none;
-
-      @media (min-width: 768px) {
-        display: inline-block;
-      }
-    }
-  }
-
