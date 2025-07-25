@@ -1,19 +1,15 @@
-//moodic/src/page/Homejsx
+// src/page/Home.jsx
 import React, { useRef } from 'react';
+import HomeNavigation from '../components/HomeNavigation';
 import Hero from '../components/Hero';
 import ScrollSection from '../components/ScrollSection';
 import Player from '../components/Player';
 import Genre from './Genre';
-import CountryChart from '../page/CountryChart';
-import Navigation from '../components/Navigation';
-import './Home.scss';
+import CountryChart from './CountryChart';
 import Main from '../components/Main';
-
-
-
+import './Home.scss';
 
 const Home = () => {
-    // 각 섹션 참조 생성
   const mainRef = useRef(null);
   const heroRef = useRef(null);
   const chartsRef = useRef(null);
@@ -21,49 +17,31 @@ const Home = () => {
   const scrollRef = useRef(null);
   const playerRef = useRef(null);
 
-  // 내비게이션 클릭 시 스크롤 이동 함수
   const scrollToSection = (ref) => {
     ref.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <>
-      <div className='home'>
-        {/* 내비게이션에 scroll 함수 전달 */}
-        <Navigation
-          onMainClick={() => scrollToSection(mainRef)}
-          onChartsClick={() => scrollToSection(chartsRef)}
-          onGenreClick={() => scrollToSection(genreRef)}
-          onScrollClick={() => scrollToSection(scrollRef)}
-          onHeroClick={() => scrollToSection(heroRef)}
-          onPlayerClick={() => scrollToSection(playerRef)}
-        />
-        <div ref={mainRef} className="main-section">
-          <Main />
-        </div>  
-        <div ref={chartsRef} className="chart-section">
-          <CountryChart />
-        </div>
-        <div ref={genreRef} className="genre-section">
-          <Genre />
-        </div>
-        <div ref={scrollRef} className="scroll-section">
-          <ScrollSection />
-        </div>
-        <div ref={heroRef} className="hero-section">
-          <Hero />
-        </div>
-        <div ref={playerRef} className="player-section">
-          <Player />
-        </div>
-      </div>
-      
-      {/* 다른 섹션들 */}
-    </>
-       
+      <HomeNavigation
+        onMainClick={() => scrollToSection(mainRef)}
+        onChartsClick={() => scrollToSection(chartsRef)}
+        onGenreClick={() => scrollToSection(genreRef)}
+        onScrollClick={() => scrollToSection(scrollRef)}
+        onHeroClick={() => scrollToSection(heroRef)}
+        onPlayerClick={() => scrollToSection(playerRef)}
+      />
 
-);
-    
+      <div className="home">
+        <div ref={mainRef}><Main /></div>
+        <div ref={chartsRef}><CountryChart /></div>
+        <div ref={genreRef}><Genre /></div>
+        <div ref={scrollRef}><ScrollSection /></div>
+        <div ref={heroRef}><Hero /></div>
+        <div ref={playerRef}><Player /></div>
+      </div>
+    </>
+  );
 };
 
 export default Home;

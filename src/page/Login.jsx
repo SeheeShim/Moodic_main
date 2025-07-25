@@ -3,12 +3,12 @@ import './Login.scss';
 import logo from '../img/logo_color.png';
 import loginText from '../img/logsign/login.png';
 import { Link } from 'react-router-dom';
-import Navigation from '../components/Navigation';
+
 
 const Login = () => {
   return (
     <div>
-      <Navigation />
+      
       
       <div className="login-wrap">
         <main className="main">
