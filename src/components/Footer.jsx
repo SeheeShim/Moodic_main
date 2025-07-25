@@ -32,7 +32,7 @@ const Footer = () => {
             </div>
           </form>
         </div>
-        <img src="/img/Moodic_Logo_P-03.png" alt="Moodic Logo" className="footer-icon" />
+        <img src="/img/Moodic_Logo.png" alt="Moodic Logo" className="footer-icon" />
         <div className="footer-bottom">
           <div className="divider"></div>
           <div className="footer-text">

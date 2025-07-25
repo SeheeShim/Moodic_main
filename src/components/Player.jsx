@@ -28,6 +28,7 @@ const Player = () => {
                 <div className={`master-snap-section _${i + 1}`}>
                   {/* 이미지 토글 */}
                   <img
+                    key={isToggled ? 'alt' : 'main'}
                     src={isToggled ? sec.images[1] : sec.images[0]}
                     alt=""
                     className="image-cover"
@@ -46,23 +47,19 @@ const Player = () => {
                   <div className="snap-bottom-gradient">
                     <div className="button-wrap-snap">
                       <div
-                        className={`button-snap _${i + 1}`}
+                        className={`toggle-box ${isToggled ? 'toggled' : ''}`}
                         onClick={() => handleToggle(i)}
                       >
-                        <div className={`button-cirlce-wrap _${i + 1}`}>
-                          <div
-                            className={`button-circle _${i + 1}`}
-                            style={{ backgroundColor : sec.buttonColor }}
-                          />
-                        </div>
-                        <div className={`button-visible-text _${i + 1}`}>
-                          <div className="label">
-                            {isToggled ? sec.buttonLabelAlt || sec.buttonLabel : sec.buttonLabel}
-                          </div>
-                        </div>
+                        <div className="toggle-text left">{isToggled ? 'Pause' : 'Music Play'}</div>
+                        <div
+                          className="toggle-circle"
+                          style={{ backgroundColor: sec.buttonColor }}
+                        />
+                        <div className="toggle-text right">{isToggled ? 'Pause' : 'Music Play'}</div>
                       </div>
                       <div className="label">{sec.description}</div>
                     </div>
+
                   </div>
                 </div>
               </SwiperSlide>

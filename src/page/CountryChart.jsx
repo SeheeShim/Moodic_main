@@ -72,40 +72,42 @@ const CountryChart = () => {
         ))}
       </div>
 
-      <div className="headline">
-        <motion.h2 initial={{ y: -30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5 }}>
-          {selectedCountry} 차트
-        </motion.h2>
-        <button className="play-btn">Play</button>
-      </div>
-
-      <div className="circle-wrapper">
-        {tracks.map((track, index) => {
-          const angle = (360 / tracks.length) * index;
-          const radius = 260;
-          const x = radius * Math.cos((angle * Math.PI) / 180);
-          const y = radius * Math.sin((angle * Math.PI) / 180);
-
-          return (
-            <motion.a
-              key={index}
-              href={track.url}
-              target="_blank"
-              rel="noreferrer"
-              className="circle-image"
-              style={{
-                transform: `translate(${x}px, ${y}px) rotate(${angle}deg)`
-              }}
-            >
-              <motion.img
-                src={track.image}
-                alt={track.name}
-                whileHover={{ scale: 1.15 }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.a>
-          );
-        })}
+      <div className='chartCircle-wrapper'>
+        <div className="headline">
+          <motion.h2 initial={{ y: -30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5 }}>
+            {selectedCountry} 차트
+          </motion.h2>
+          <button className="play-btn">Play</button>
+        </div>
+  
+        <div className="circle-wrapper">
+          {tracks.map((track, index) => {
+            const angle = (360 / tracks.length) * index;
+            const radius = 260;
+            const x = radius * Math.cos((angle * Math.PI) / 180);
+            const y = radius * Math.sin((angle * Math.PI) / 180);
+  
+            return (
+              <motion.a
+                key={index}
+                href={track.url}
+                target="_blank"
+                rel="noreferrer"
+                className="circle-image"
+                style={{
+                  transform: `translate(${x}px, ${y}px) rotate(${angle}deg)`
+                }}
+              >
+                <motion.img
+                  src={track.image}
+                  alt={track.name}
+                  whileHover={{ scale: 1.15 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.a>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

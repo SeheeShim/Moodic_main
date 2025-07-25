@@ -3,6 +3,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Genre.scss';
 
+// 상단 텍스트 이미지 파일 import
+<div className="genre-header">
+  <img
+    src={process.env.PUBLIC_URL + "/img/genre/gerne_txt.png"}
+    alt="Play the Mood, Feel the Music"
+    className="genre-header-image"
+  />
+</div>
 const genres = [
   { label: 'Pop', value: 'pop', image: '/img/genre/pop.png' },
   { label: 'K-Pop', value: 'k-pop', image: '/img/genre/kpop.png' },
@@ -50,40 +58,65 @@ const Genre = () => {
 
   return (
     <div className="genre-page">
-      <nav className="genre-nav">
-        {genres.map((g) => (
-          <button
-            key={g.value}
-            className={selectedGenre.value === g.value ? 'active' : ''}
-            onClick={() => setSelectedGenre(g)}
-          >
-            {g.label}
-          </button>
-        ))}
-      </nav>
+        {/* 상단 텍스트 이미지 추가 */}
+      <div className="genre-header">
+        <img
+          src={process.env.PUBLIC_URL + "/img/genre/gerne_txt.png"}
+          alt="Play the Mood, Feel the Music"
+          className="genre-header-image-txt"
+        />
+        <img
+          src={process.env.PUBLIC_URL + "/img/genre/orange_icon.png"}
+          alt="Play the Mood, Feel the Music"
+          className="genre-header-image-orange"
+        />
+        <img
+          src={process.env.PUBLIC_URL + "/img/genre/green_icon.png"}
+          alt=""
+          className="genre-header-image-green"
+        />
+        
+      </div>
 
-      <div className="genre-content">
-        <div className="genre-image">
-          <img src={selectedGenre.image} alt={selectedGenre.label} />
-        </div>
-
-        <div className="track-list">
-          {albums.map((album, idx) => (
-            <div key={idx} className="track-item">
-              <img
-                src={getImageUrl(album)}
-                alt={album.name}
-                className="album-art"
-              />
-              <div className="track-info">
-                <h3>{album.name}</h3>
-                <p>{album.artist.name}</p>
-                <a href={album.url} target="_blank" rel="noopener noreferrer">
-                  View on Last.fm
-                </a>
-              </div>
-            </div>
+      <div className='genre-navWrap'>
+        <nav className="genre-nav">
+          {genres.map((g) => (
+            <button
+              key={g.value}
+              className={selectedGenre.value === g.value ? 'active' : ''}
+              onClick={() => setSelectedGenre(g)}
+            >
+              {g.label}
+            </button>
           ))}
+        </nav>
+      </div>
+      
+
+      <div className="genre-container">
+        <div className="genre-content">
+          <div className="genre-image">
+            <img src={selectedGenre.image} alt={selectedGenre.label} />
+          </div>
+  
+          <div className="track-list">
+            {albums.map((album, idx) => (
+              <div key={idx} className="track-item">
+                <img
+                  src={getImageUrl(album)}
+                  alt={album.name}
+                  className="album-art"
+                />
+                <div className="track-info">
+                  <h3>{album.name}</h3>
+                  <p>{album.artist.name}</p>
+                  <a href={album.url} target="_blank" rel="noopener noreferrer">
+                    View on Last.fm
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

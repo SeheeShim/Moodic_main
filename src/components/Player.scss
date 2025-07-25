@@ -1,5 +1,10 @@
+$toggle-width: 200px;
+$circle-size: 42px;
+$padding: 4px;
+$circle-toggled-left: calc(#{$toggle-width} - #{$circle-size} - #{$padding});
+
 .section.makes {
-  margin-top: 2500px;
+  padding-top: 4rem;
   background-color: #ebe8db;
   color: #2a2119;
   padding: 2rem 0;
@@ -9,11 +14,26 @@
   z-index: 22;
 
   .master-snap-sections {
+    width: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     gap: 3rem;
 
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     .master-snap-section {
+      width: 90%;
+      height: 90%;
       position: relative;
       overflow: hidden;
       border-radius: 12px;
@@ -22,14 +42,13 @@
       &._1,
       &._2,
       &._3 {
-        // 공통 스타일
         .image-cover {
           width: 100%;
-          height: 1000px;
+          height: 100%;
           display: block;
           object-fit: cover;
-          overflow: hidden;
           border-radius: 12px;
+          transition: opacity 1s ease;
         }
 
         .snap-top-gradient {
@@ -47,7 +66,7 @@
               font-weight: 700;
               font-size: 1.25rem;
               line-height: 1.4;
-              white-space: pre-line; // 줄바꿈 처리
+              white-space: pre-line;
             }
 
             .text-mask-snap {
@@ -58,9 +77,11 @@
                 font-weight: 900;
                 line-height: 1;
                 transition: opacity 0.3s ease;
+
                 &.first-layer {
                   opacity: 1;
                 }
+
                 &.second-layer {
                   opacity: 0;
                 }
@@ -69,10 +90,7 @@
           }
         }
 
-
-
         .snap-bottom-gradient {
-          
           position: absolute;
           bottom: 0;
           left: 0;
@@ -82,48 +100,68 @@
           color: white;
 
           .button-wrap-snap {
-            
+            width: 100%;
             display: flex;
+            flex-direction: column;
             align-items: center;
             gap: 1rem;
-            z-index: 999;
-            .button-snap {
+
+            .toggle-box {
+              position: relative;
+              width: $toggle-width;
+              height: 50px;
+              background-color: rgba(255, 255, 255, 0.1);
+              border: 2px solid white;
+              border-radius: 999px;
               display: flex;
               align-items: center;
               cursor: pointer;
-              user-select: none;
+              overflow: hidden;
+              transition: background-color 0.3s ease;
 
-              .button-cirlce-wrap {
-                margin-right: 0.75rem;
+              .toggle-text {
+                position: absolute;
+                width: 100px;
+                text-align: center;
+                font-weight: 700;
+                font-size: 0.9rem;
+                color: white;
+                transition: opacity 0.3s ease;
 
-                .button-circle {
-                  width: 36px;
-                  height: 36px;
-                  border-radius: 50%;
-                  transition: /* background-color */ 0.3s ease;
+                &.left {
+                  right: 0;
+                  opacity: 1;
                 }
-                
-                &._1 .button-circle,
-                &._2 .button-circle,
-                &.button-circle {
-                  
-                  background-color: orangered;
-                }
-              }
 
-              .button-hidden-text,
-              .button-visible-text {
-                .label {
-                  font-weight: 700;
-                  font-size: 1rem;
+                &.right {
+                  left: 0;
+                  opacity: 0;
                 }
               }
 
-              .button-hidden-text {
-                opacity: 0;
+              .toggle-circle {
+                width: $circle-size;
+                height: $circle-size;
+                border-radius: 50%;
+                background-color: orangered;
+                position: absolute;
+                top: 4px;
+                left: $padding;
+                transition: left 0.4s ease;
               }
-              .button-visible-text {
-                opacity: 1;
+
+              &.toggled {
+                .toggle-circle {
+                  left: $circle-toggled-left; // 200 - 42 - 4
+                }
+
+                .toggle-text.left {
+                  opacity: 0;
+                }
+
+                .toggle-text.right {
+                  opacity: 1;
+                }
               }
             }
 
@@ -131,71 +169,11 @@
               font-weight: 400;
               font-size: 0.9rem;
               opacity: 0.85;
+              color: white;
             }
           }
         }
-
-        /* .kid-visible {
-          position: absolute;
-          bottom: 10px;
-          right: 10px;
-          width: 120px;
-          opacity: 1;
-          transition: opacity 0.3s ease;
-        }
-
-        .kid-hidden {
-          position: absolute;
-          bottom: 10px;
-          right: 10px;
-          width: 120px;
-          opacity: 0;
-          transition: opacity 0.3s ease;
-        }
-
-        .overlay-48 {
-          position: absolute;
-          inset: 0;
-          background: rgba(0, 0, 0, 0.15);
-          pointer-events: none;
-        } */
       }
     }
   }
-
-  .master-snap-sections {
-  width: 100%;
-  height: 100vh;
-
-  .swiper {
-    width: 100%;
-    height: 100%;
-  }
-
-  .swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .master-snap-section {
-    width: 90%;
-    height: 90%;
-    position: relative;
-    overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-
-    .image-cover {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 12px;
-    }
-
-    // 기존 스타일들도 여기 포함
-  }
 }
-  
-}
-
