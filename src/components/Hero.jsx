@@ -22,7 +22,7 @@ const Hero = () => {
         <div className="main-container">
           <div className="master-hero-section">
             <div className="logo-wrap-hero">
-              <img src="/img/Moodic_Logo_P-03.svg" alt="Moodic Logo" className="logo-hero" />
+              <img src="/img/Moodic_Logo.png" alt="Moodic Logo" className="logo-hero" />
             </div>
 
             <div className="bottom-tile-hero">
@@ -33,7 +33,7 @@ const Hero = () => {
 
               <div className="text-wrap-hero-middle">
                 <div className="label hero-animated">
-                  A playground where animation meets curiosity.<br />
+                  이번 주 가장 빛나는 뮤직비디오, 놓치지 마세요. <br />
                   Built on GSAP. Designed by Moodic.
                 </div>
               </div>

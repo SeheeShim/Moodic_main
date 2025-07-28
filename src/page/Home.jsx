@@ -34,9 +34,9 @@ const Home = () => {
 
       <div className="home">
         <div ref={mainRef}><Main /></div>
-        <div ref={chartsRef}><CountryChart /></div>
-        <div ref={genreRef}><Genre /></div>
         <div ref={scrollRef}><ScrollSection /></div>
+        <div ref={genreRef}><Genre /></div>
+        <div ref={chartsRef}><CountryChart /></div>
         <div ref={heroRef}><Hero /></div>
         <div ref={playerRef}><Player /></div>
       </div>

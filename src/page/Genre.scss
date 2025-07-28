@@ -3,7 +3,7 @@
 .genre-page {
   padding-top: 10rem;
   width: 100%;
-  height: 80rem;
+  height: 100vh;
   padding: 5rem;
   box-sizing: border-box;
   background-color: #fff;
@@ -12,6 +12,7 @@
   background-size: cover;
   background-attachment: fixed;
   position: relative;
+  overflow: hidden;
 }
 .genre-header {
   padding-top: 2rem;

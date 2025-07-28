@@ -1,41 +1,42 @@
-// src/components/HomeNavigation.jsx
 import React, { useState, useEffect } from 'react';
 import { IoPerson } from "react-icons/io5";
 import './Navigation.scss';
 
+const LOGO_DEFAULT = '/img/Moodic_Logo.png';       // 블랙
+const LOGO_COLOR = '/img/Moodic_Logo_color.png';   // 컬러
+
 const HomeNavigation = ({ onMainClick, onHeroClick, onChartsClick, onGenreClick, onScrollClick, onPlayerClick }) => {
-  const [logoSrc, setLogoSrc] = useState('/img/Moodic_Logo.png');
   const [scrolled, setScrolled] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [logoSrc, setLogoSrc] = useState(LOGO_DEFAULT);
 
   useEffect(() => {
     const handleScroll = () => {
-      const offset = window.scrollY;
-      if (offset > 100) {
-        setScrolled(true);
-        setLogoSrc('/img/Moodic_Logo_color.png');
-      } else {
-        setScrolled(false);
-        setLogoSrc('/img/Moodic_Logo.png');
-      }
+      const isScrolled = window.scrollY > 100;
+      setScrolled(isScrolled);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleMouseEnter = () => {
-    setLogoSrc('/img/Moodic_Logo_color.png');
-  };
-
-  const handleMouseLeave = () => {
-    if (!scrolled) {
-      setLogoSrc('/img/Moodic_Logo.png');
+  // 로고 상태를 스크롤 & 호버 상태에 따라 결정
+  useEffect(() => {
+    if (scrolled) {
+      setLogoSrc(isHovered ? LOGO_DEFAULT : LOGO_COLOR);  // 스크롤된 상태에서는 호버 시 블랙
+    } else {
+      setLogoSrc(isHovered ? LOGO_COLOR : LOGO_DEFAULT);  // 스크롤 안 됐을 때는 호버 시 컬러
     }
-  };
+  }, [scrolled, isHovered]);
+
+  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseLeave = () => setIsHovered(false);
 
   return (
     <nav className={`mainNav ${scrolled ? 'scrolled' : ''}`}>
-      <button className="logo" onClick={onMainClick} 
+      <button
+        className="logo"
+        onClick={onMainClick}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
@@ -43,11 +44,11 @@ const HomeNavigation = ({ onMainClick, onHeroClick, onChartsClick, onGenreClick,
       </button>
 
       <ul className="mainNav_center">
-        <li><button onClick={onChartsClick}>Charts</button></li>
-        <li><button onClick={onGenreClick}>Genre</button></li>
-        <li><button onClick={onScrollClick}>ScrollSection</button></li>
+        <li><button onClick={onScrollClick}>GRAMMY</button></li>
+        <li><button onClick={onGenreClick}>GENRE</button></li>
+        <li><button onClick={onChartsClick}>TOP100</button></li>        
         <li><button onClick={onHeroClick}>Hero</button></li>
-        <li><button onClick={onPlayerClick}>Player</button></li>
+        <li><button onClick={onPlayerClick}>PLAYER</button></li>
       </ul>
 
       <ul className="mainNav_right">

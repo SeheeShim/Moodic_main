@@ -35,11 +35,11 @@ const Navigation = ({ onMainClick, onHeroClick, onChartsClick, onGenreClick, onS
       </button>
 
       <ul className='mainNav_center'>
-        <li><button onClick={onChartsClick}>Charts</button></li>
-        <li><button onClick={onGenreClick}>Genre</button></li>
-        <li><button onClick={onScrollClick}>ScrollSection</button></li>
+        <li><button onClick={onScrollClick}>GRAMMY</button></li>
+        <li><button onClick={onGenreClick}>GENRE</button></li>
+        <li><button onClick={onChartsClick}>CHARTS</button></li>
         <li><button onClick={onHeroClick}>Hero</button></li>
-        <li><button onClick={onPlayerClick}>Player</button></li>
+        <li><button onClick={onPlayerClick}>PLAYER</button></li>
       </ul>
 
       

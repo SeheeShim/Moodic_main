@@ -3,15 +3,14 @@
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
   height: 4rem;
   background: none;
   z-index: 999;
   display: flex;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  justify-content: space-between;
+  /* justify-content: space-between; */
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 
   &.scrolled {
@@ -25,20 +24,27 @@
 
     .mainNav_center button,
     .mainNav_right a {
-      color: #f47a4b; // 스크롤 시 버튼 색상 변경
+      color: #000; // 스크롤 시 버튼 색상 변경
       transition: color 0.3s ease;
-      &:hover {
+      /* &:hover {
         color: lighten(#f47a4b, 10%);
-      }
+      } */
     }
   }
 
   .logo {
+    position: relative;
+    flex: 1;
     border: none;
     background: none;
     cursor: pointer;
 
     img {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      justify-content: flex-start;
       width: 10rem;
       height: auto;
       transition: filter 0.3s ease;
@@ -47,8 +53,9 @@
   }
 
   .mainNav_center {
+    flex: 1;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,23 +64,21 @@
       li {
       list-style: none;
       margin: 0 10px;
+      
 
-      button {
-        padding: 4px 8px;
-        border: none;
-        background: none;
-        font-size: 1.3rem;
-        font-weight: 500;
-        color: #333;
-        cursor: pointer;
-        transition: color 0.3s, font-weight 0.3s;
-
-        &:hover {
+        button {
+          padding: 4px 8px;
+          border: none;
+          background: none;
+          font-size: 1.1rem;
           font-weight: 700;
-        }
-      }
+          
+          cursor: pointer;
+          transition: color 0.3s, font-weight 0.3s;
 
-      // 각 li 순서에 따라 다른 버튼 색상
+          
+        }
+
       &:nth-child(1) button:hover {
         color: #fb6f7a;
       }
@@ -96,13 +101,74 @@
     }
   }
 
+
+/*   .mainNav_center li:nth-child(1) button {
+    color: #fb6f7a;
+    -webkit-text-stroke: 0;
+
+    &:hover {
+      color: transparent;
+      -webkit-text-stroke: 1px #fb6f7a;
+      border: none;
+    }
+  }
+
+
+  .mainNav_center li:nth-child(2) button {
+    color: #f47a4b;
+    -webkit-text-stroke: 0;
+
+    &:hover {
+      color: transparent;
+      -webkit-text-stroke: 1px #f47a4b;
+      border: none;
+    }
+  }
+
+
+  .mainNav_center li:nth-child(3) button {
+    color: #fed440;
+    -webkit-text-stroke: 0;
+
+    &:hover {
+      color: transparent;
+      -webkit-text-stroke: 1px #fed440;
+      border: none;
+    }
+  }
+
+
+  .mainNav_center li:nth-child(4) button {
+    color: #b474b4;
+    -webkit-text-stroke: 0;
+
+    &:hover {
+      color: transparent;
+      -webkit-text-stroke: 1px #b474b4;
+      border: none;
+    }
+  }
+
+
+  .mainNav_center li:nth-child(5) button {
+    color: #55a3ff;
+    -webkit-text-stroke: 0;
+
+    &:hover {
+      color: transparent;
+      -webkit-text-stroke: 1px #55a3ff;
+      border: none;
+  }
+  } */
+
+
+
+  
   .mainNav_right {
-    margin-right: 10px;
-    padding: 0 24px;
+    flex: 1;
+    margin-left: 10px;
     display: flex;
-    justify-content: space-between;
-    align-items: right;
-    flex-wrap: wrap;
+    justify-content: flex-end;
     gap: 10px;
 
     li {
@@ -111,7 +177,6 @@
       a {
         text-decoration: none;
         color: #333;
-        padding: 4px 8px;
         font-size: 1rem;
         font-weight: 800;
         transition: color 0.3s;

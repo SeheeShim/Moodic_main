@@ -3,35 +3,34 @@ import { Link } from 'react-router-dom';
 import { IoPerson } from "react-icons/io5";
 import './Navigation.scss';
 
+const LOGO_DEFAULT = '/img/Moodic_Logo.png';       // 블랙
+const LOGO_COLOR = '/img/Moodic_Logo_color.png';   // 컬러
+
 const GlobalNavigation = () => {
-  const [logoSrc, setLogoSrc] = useState('/img/Moodic_Logo.png');
   const [scrolled, setScrolled] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [logoSrc, setLogoSrc] = useState(LOGO_DEFAULT);
 
   useEffect(() => {
     const handleScroll = () => {
-      const offset = window.scrollY;
-      if (offset > 100) {
-        setScrolled(true);
-        setLogoSrc('/img/Moodic_Logo_color.png');
-      } else {
-        setScrolled(false);
-        setLogoSrc('/img/Moodic_Logo.png');
-      }
+      const isScrolled = window.scrollY > 100;
+      setScrolled(isScrolled);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleMouseEnter = () => {
-    setLogoSrc('/img/Moodic_Logo_color.png');
-  };
-
-  const handleMouseLeave = () => {
-    if (!scrolled) {
-      setLogoSrc('/img/Moodic_Logo.png');
+  useEffect(() => {
+    if (scrolled) {
+      setLogoSrc(isHovered ? LOGO_DEFAULT : LOGO_COLOR);
+    } else {
+      setLogoSrc(isHovered ? LOGO_COLOR : LOGO_DEFAULT);
     }
-  };
+  }, [scrolled, isHovered]);
+
+  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseLeave = () => setIsHovered(false);
 
   return (
     <nav className={`mainNav ${scrolled ? 'scrolled' : ''}`}>
