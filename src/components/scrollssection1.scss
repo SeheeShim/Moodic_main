@@ -1,139 +1,106 @@
 *{box-sizing: border-box;}
-/* .scroll-section{
+li{
+    list-style: none;
+}
+
+.scroll-section1 {
+    
     position: relative;
     width: 100%;
-    height: 100vh;
     background: url(../img/bg.jpg) no-repeat center center/cover;
-} */
-.scroll-section1{
-    
-    padding: 0 150px; 
-    box-sizing: border-box;
-    h2{
-        line-height: 0;
-        margin: 0;
+
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  font-family: 'Pretendard', sans-serif;
+  color: #000;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    margin-top: 30px;
+
+    .header-left {
+      /* flex: 1; */
+
+      .album-cover {
+        width: 550px;
+      }
     }
-    .Tit{
-        padding-left: 523px;
-    }
-    .medal{
+
+    .header-right {
+      /* flex: 1; */
+      margin-left: 30px;
+      text-align: center;
+      position: relative;
+
+      .grammy-logo {
+        width: 900px;
+        padding-top: 30px;
+      }
+      .top3{
+        width: 900px;
+        padding-top: 20px;
+      }
+      .right_section{
+        border: 6px solid #000;
+        box-sizing: border-box;
+        height: 550px;
+      }
+
+      .medal {
         position: absolute;
-        top:100px;
-        right: 300px;
+        bottom: -296px;
+        right: 90px;
+        width: 300px;
+      }
     }
-    .kendrickImgInfo{
-        display: flex;
-        margin-top: 150px;
-        .kendrickImg{margin-right: 50px;}
-        .kendrickInfo{
-            h3{}
-            h2{margin-bottom: 50px;}
-            .kendrickText{
-                .name{font-size: 20px;}
-                ul{
-                    li{}
-                }
-                .title{}
-            }
-        }
+  }
+
+  .content {
+    margin-top: 10px;
+
+    .name {
+        width: 800px;
     }
-    .ect{
-        position: absolute;
-        bottom:0px;
-        right: 80px;
-    }
-    
-}
-.scroll-section2{
-    .medal{
-        position: absolute;
-        top: 50px;
-        left: 300px;
-        padding: 20px;
+
+    .intro {
+        padding-left: 13px;
         
-    }
-    .ect{
-        position: absolute;
-        top: 200PX;
-        right: 300px;
+      font-size: 20px;
+      line-height: 1.8;
+      margin-bottom: 25px;
+      font-weight:600;
 
+      strong {
+        color: #222;
+      }
     }
-    .BeyonceImgInfo{
-        padding-top:400px;
-        display: flex;
-        justify-content: flex-end;
-        padding-right: 300px;
-        .BeyonceInfo{
-            display: flex;
-            align-items: flex-end;
-            flex-direction: column;
-             padding-right: 70px;
-            h3{
-                margin: 0;
-                img{}
-            }
-            h2{}
-        }
-        .BeyonceText{
-           
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            width:900px;
-           
-            .name{}
-            ul{
-                li{letter-spacing: -1px; text-align: right; list-style: none;}
-            }
-            .title{}
-        }
-        .BeyonceImg{
-            img{
-                width: 500px;
-                height: 500px;
-            }
-        }
-    }
-}
-.scroll-section3{
-    
-    padding: 150px; 
-    box-sizing: border-box;
 
-    .medal{
-        position: absolute;
-        top:20px;
-        right: 300px;
-    }
-    .sabrinaImgInfo{
-        display: flex;
-        margin-top: 150px;
-        .sabrinaImg{margin-right: 50px;
-            img{
-                width: 500px;
-                height: 500px;
-            }
+    .award-section {
+      h3 {
+        padding-left: 13px;
+        font-size: 26px;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      ul {
+        list-style: disc;
+        padding-left: 12px;
+        font-size: 20px;
+
+        li {
+            padding-left: 13px;
+          margin-bottom: 14px;
+          font-weight: 600;
+
+          strong {
+            color: #333;
+          }
         }
-        .sabrinaInfo{
-            h3{}
-            h2{margin-bottom: 50px;}
-            .sabrinaText{
-                .name{font-size: 20px;}
-                ul{
-                    li{}
-                }
-                .title{}
-            }
-        }
+      }
     }
-    .ect{
-        position: absolute;
-        bottom:0px;
-        right: 80px;
-        img{
-            width: 200px;
-            height: 200px;
-        }
-    }
-    
+  }
 }

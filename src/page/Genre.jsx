@@ -44,7 +44,7 @@ const Genre = () => {
             tag: selectedGenre.value,
             api_key: API_KEY,
             format: 'json',
-            limit: 10,
+            limit: 9,
           },
         });
         setAlbums(res.data.albums.album);
@@ -60,11 +60,11 @@ const Genre = () => {
     <div className="genre-page">
         {/* 상단 텍스트 이미지 추가 */}
       <div className="genre-header">
-        <img
+        {/* <img
           src={process.env.PUBLIC_URL + "/img/genre/gerne_txt.png"}
           alt="Play the Mood, Feel the Music"
           className="genre-header-image-txt"
-        />
+        /> */}
         <img
           src={process.env.PUBLIC_URL + "/img/genre/orange_icon.png"}
           alt="Play the Mood, Feel the Music"
@@ -94,7 +94,12 @@ const Genre = () => {
       
 
       <div className="genre-container">
-        <div className="genre-content">
+        <div className="genre-content" style={{position: 'relative'}}>
+          <img
+          src={process.env.PUBLIC_URL + "/img/genre/gerne_txt.png"}
+          alt="Play the Mood, Feel the Music"
+          className="genre-header-image-txt"
+        />
           <div className="genre-image">
             <img src={selectedGenre.image} alt={selectedGenre.label} />
           </div>
@@ -107,6 +112,7 @@ const Genre = () => {
                   alt={album.name}
                   className="album-art"
                 />
+                <div className="divider"></div>
                 <div className="track-info">
                   <h3>{album.name}</h3>
                   <p>{album.artist.name}</p>

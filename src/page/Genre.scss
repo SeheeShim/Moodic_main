@@ -3,7 +3,7 @@
 .genre-page {
   padding-top: 10rem;
   width: 100%;
-  height: 100vh;
+  height: 80rem;
   padding: 5rem;
   box-sizing: border-box;
   background-color: #fff;
@@ -12,30 +12,42 @@
   background-size: cover;
   background-attachment: fixed;
   position: relative;
-  overflow: hidden;
 }
-.genre-header {
-  padding-top: 2rem;
-  text-align: center;
-  margin-bottom: 1rem;  // 텍스트 이미지와 나머지 콘텐츠 사이의 간격 조정
-}
+// .genre-header {
+//   padding-top: 2rem;
+//   text-align: center;
+//   margin-bottom: 1rem;  // 텍스트 이미지와 나머지 콘텐츠 사이의 간격 조정
+// }
 
-.genre-header-image {
-  width: 348px;
-  max-width: 600px;  // 적절한 최대 너비 설정 (해당 값을 조정)
-  height: auto;
-}
+// .genre-header-image {
+//   width: 348px;
+//   max-width: 600px;  // 적절한 최대 너비 설정 (해당 값을 조정)
+//   height: auto;
+// }
 .genre-header-image-orange{
   position: absolute;
   width: 245px;
-  top: 50px;
+  top: 25px;
   right: 0;
+  z-index: 1;
 }
 .genre-header-image-green{
   position: absolute;
   width: 245px;
-  top: 200px;
-  left: 60px;}
+  top: 150px;
+  left: 60px;
+  z-index: 1;
+}
+
+.genre-header-image-txt {
+  position: absolute;
+  top: 10rem;    // genre-image의 padding-top과 맞춤
+  left: 27rem; // genre-image의 margin-left와 맞춤
+  transform: translateX(-50%);
+  width: 348px;
+  z-index: 2;
+  pointer-events: none;
+}
 
 .genre-navWrap{
   display: flex;
@@ -51,14 +63,14 @@
   align-items: center;
   gap: 4rem;
   width: 946px;
-  height: 75px;
+  height: 55px;
   background: #F6E636;
   border-radius: 50px;
   padding: 0.5rem 2rem;
 
   button {
     background: none;
-    border: 0px solid #333;
+    border: 0px solid #f47a4b;
     padding: 0.5rem 1rem ;
     border-radius: 25px;
     font-size: 1rem;
@@ -74,7 +86,7 @@
     line-height: 40px; /* 기본 line-height는 height와 동일하게 설정 */
 
     &.active {
-      background-color: #333;
+      background-color: #f47a4b;
       color: white;
     }
 
@@ -104,15 +116,15 @@
   width: 100%;
   height: 1000px;
   display: flex;
-  gap: 15rem;
+  gap: 11rem;
   align-items: flex-start;
   flex-wrap: wrap;
 
   .genre-image {
     flex: 1;
-    padding-top: 8rem;
+    padding-top: 20rem;
     img {
-      margin-left: 20rem;
+      margin-left: 11rem;
       width: 500px;
       height: 500px;
       max-width: 500px;
@@ -123,25 +135,37 @@
 
   .track-list {
     width: 65%;
-    padding-bottom: 5rem;
     box-sizing: border-box;
     flex: 2;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
+    padding-top: 35px;
 
     .track-item {
       display: flex;
       align-items: center;
       gap: 1rem;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 1rem;
+      padding: 0.3rem 1rem 0.3rem 1rem;
+      position: relative;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      width: 90%;
 
       .album-art {
         width: 80px;
         height: 80px;
         object-fit: cover;
         border-radius: 8px;
+      }
+
+      // 세로줄 추가
+      .divider {
+        width: 1px;
+        height: 60px; // 세로줄 길이 조절
+        background: #000000;
+        margin: 0 0.5rem;
       }
 
       .track-info {
