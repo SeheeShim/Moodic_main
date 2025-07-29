@@ -1,16 +1,10 @@
 // src/pages/Genre.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { IoIosMore } from "react-icons/io";
 import axios from 'axios';
 import './Genre.scss';
+import { gsap } from 'gsap';
 
-// 상단 텍스트 이미지 파일 import
-<div className="genre-header">
-  <img
-    src={process.env.PUBLIC_URL + "/img/genre/gerne_txt.png"}
-    alt="Play the Mood, Feel the Music"
-    className="genre-header-image"
-  />
-</div>
 const genres = [
   { label: 'Pop', value: 'pop', image: '/img/genre/pop.png' },
   { label: 'K-Pop', value: 'k-pop', image: '/img/genre/kpop.png' },
@@ -25,7 +19,26 @@ const API_KEY = '2cbe9837fd1d09eae15919b7844132de';
 const Genre = () => {
   const [selectedGenre, setSelectedGenre] = useState(genres[0]);
   const [albums, setAlbums] = useState([]);
+  const textRef = useRef(null); // ✅ 한 번만 선언
 
+  // 텍스트 애니메이션
+  useEffect(() => {
+    const chars = textRef.current?.querySelectorAll('.char');
+    if (chars && chars.length) {
+      gsap.fromTo(chars, {
+        opacity: 0,
+        y: 50,
+      }, {
+        opacity: 1,
+        y: 0,
+        stagger: 0.07,
+        ease: "back.out(1.7)",
+        duration: 1.2
+      });
+    }
+  }, [selectedGenre]);
+
+  // 앨범 이미지 가져오기
   const getImageUrl = (album) => {
     const imageObj = album.image?.find((img) => img.size === 'large');
     const url = imageObj?.['#text'];
@@ -33,6 +46,7 @@ const Genre = () => {
     return isDefault || !url ? '/images/default_album.jpg' : url;
   };
 
+  // 장르 선택 시 앨범 불러오기
   useEffect(() => {
     if (!selectedGenre) return;
 
@@ -58,13 +72,25 @@ const Genre = () => {
 
   return (
     <div className="genre-page">
-        {/* 상단 텍스트 이미지 추가 */}
       <div className="genre-header">
-        {/* <img
-          src={process.env.PUBLIC_URL + "/img/genre/gerne_txt.png"}
-          alt="Play the Mood, Feel the Music"
-          className="genre-header-image-txt"
-        /> */}
+        <div className="genre-header-image-txt" ref={textRef}>
+          {[
+            { word: "PLAY", color: "#ff69b4" },      // 분홍
+            { word: "THE", color: "#f47a4b" },       // 주황
+            { word: "MOOD", color: "#f6e636" },      // 노랑
+            { word: "FEEL", color: "#37ff8a" },      // 초록
+            { word: "THE", color: "#00cfff" },       // 하늘
+            { word: "MUSIC", color: "#a47aff" },     // 보라
+          ].map(({ word, color }, wordIndex) => (
+            <span key={wordIndex} className="word" style={{ color }}>
+              {word.split("").map((char, i) => (
+                <span key={`${wordIndex}-${i}`} className="char">{char}</span>
+              ))}
+              <span className="char">&nbsp;</span>
+            </span>
+          ))}
+        </div>
+
         <img
           src={process.env.PUBLIC_URL + "/img/genre/orange_icon.png"}
           alt="Play the Mood, Feel the Music"
@@ -75,35 +101,29 @@ const Genre = () => {
           alt=""
           className="genre-header-image-green"
         />
-        
       </div>
 
-      <div className='genre-navWrap'>
-        <nav className="genre-nav">
-          {genres.map((g) => (
-            <button
-              key={g.value}
-              className={selectedGenre.value === g.value ? 'active' : ''}
-              onClick={() => setSelectedGenre(g)}
-            >
-              {g.label}
-            </button>
-          ))}
-        </nav>
-      </div>
       
 
       <div className="genre-container">
-        <div className="genre-content" style={{position: 'relative'}}>
-          <img
-          src={process.env.PUBLIC_URL + "/img/genre/gerne_txt.png"}
-          alt="Play the Mood, Feel the Music"
-          className="genre-header-image-txt"
-        />
+        <div className="genre-content" >
           <div className="genre-image">
+            <div className='genre-navWrap'>
+              <nav className="genre-nav">
+                {genres.map((g) => (
+                  <button
+                    key={g.value}
+                    className={selectedGenre.value === g.value ? 'active' : ''}
+                    onClick={() => setSelectedGenre(g)}
+                  >
+                    {g.label}
+                  </button>
+                ))}
+              </nav>
+            </div>
             <img src={selectedGenre.image} alt={selectedGenre.label} />
           </div>
-  
+
           <div className="track-list">
             {albums.map((album, idx) => (
               <div key={idx} className="track-item">
@@ -114,10 +134,12 @@ const Genre = () => {
                 />
                 <div className="divider"></div>
                 <div className="track-info">
-                  <h3>{album.name}</h3>
-                  <p>{album.artist.name}</p>
+                  <div className='track-info-left'>
+                    <h3>{album.name}</h3>
+                    <p>{album.artist.name}</p>
+                  </div>
                   <a href={album.url} target="_blank" rel="noopener noreferrer">
-                    View on Last.fm
+                    <IoIosMore />
                   </a>
                 </div>
               </div>

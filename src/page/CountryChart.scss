@@ -3,7 +3,7 @@
 
 #wrap{
   padding: 3rem 1.5rem;
-  background-color: #fafafa;
+  background-color: #000;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -50,7 +50,7 @@
   top: 5rem;
   right: 0;
   padding: 3rem 1.5rem;
-  background-color: #fafafa;
+  /* background-color: #fafafa; */
   width: 100%;
   height: 70%;
   display: flex;
@@ -73,12 +73,14 @@
 .top-track-info {
   position: absolute;
   top: 0;
-  left: 0;
-  padding-left: 10rem;
+  left: 15rem;
   width: 30%;
-
+  height: auto;
+  padding: 5rem 3rem;
+  border: .5rem solid #f18f01;
+  border-radius: 25%;
   img {
-    width: 100%;
+    width: 70%;
     border-radius: 50%;
     margin-bottom: 16px;
   }
@@ -87,11 +89,12 @@
     h3 {
       font-size: 1.4rem;
       margin-bottom: 0.5rem;
+      color: #fff;
     }
 
     p {
       font-size: 1rem;
-      color: #444;
+      color: #fff;
       margin-bottom: 0.4rem;
     }
   }
@@ -100,22 +103,20 @@
   .headline {
     /* display: flex; */
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 14rem;
+    right: 32.5rem;
     justify-content: center;
     align-items: center;
     gap: 1.5rem;
-    margin-bottom: 1rem;
-
+    
     h2 {
       font-size: 2rem;
       font-weight: 700;
-      color: #333;
+      color: #fff;
     }
 
     .play-btn {
-      margin: 0 auto;
+      margin: .7rem auto;
       align-items: center;
       background-color: #f18f01;
       color: white;
@@ -136,16 +137,17 @@
 
   .circle-wrapper {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50rem;
-    height: 50rem;
-    margin: 0 auto;
+    top: -7rem;
+    right: 15rem;
+    
+    width: 45rem;
+    height: 45rem;
+    
     border-radius: 50%;
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 auto; */
     /* animation: rotate 60s linear infinite; */
 
 /*     .circle-wrapper {
