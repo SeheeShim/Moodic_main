@@ -25,7 +25,7 @@ const Player = () => {
 
             return (
               <SwiperSlide key={i}>
-                <div className={`master-snap-section _${i + 1}`}>
+                <div className={`master-snap-section _${i + 1} ${sec.label === 'Tayler Swift' ? 'sectionTayler' : ''}`}>
                   {/* 이미지 토글 */}
                   <img
                     key={isToggled ? 'alt' : 'main'}
@@ -50,12 +50,12 @@ const Player = () => {
                         className={`toggle-box ${isToggled ? 'toggled' : ''}`}
                         onClick={() => handleToggle(i)}
                       >
-                        <div className="toggle-text left">{isToggled ? 'Pause' : 'Music Play'}</div>
+                        <div className="toggle-text left">{isToggled ? 'Feel The Music' : 'Play The Mood'}</div>
                         <div
                           className="toggle-circle"
                           style={{ backgroundColor: sec.buttonColor }}
                         />
-                        <div className="toggle-text right">{isToggled ? 'Pause' : 'Music Play'}</div>
+                        <div className="toggle-text right">{isToggled ? 'Feel The Music' : 'Play The Mood'}</div>
                       </div>
                       <div className="label">{sec.description}</div>
                     </div>
