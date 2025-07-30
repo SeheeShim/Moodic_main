@@ -1,26 +1,28 @@
-.hero-section {
+.hero-section { 
   height: 100vh;
-  position: relative;
+  /* position: relative; */
   overflow: hidden;
   color: #fff;
-  background-color: #f47a4b; // 필요하면 배경색도 넣어줌
+  background-color: #000; // 필요하면 배경색도 넣어줌
 
   .video-hero {
-    position: absolute;
+    /* position: absolute; */
     inset: 0;
     z-index: 0;
-
+    padding-top: 4rem;
+    justify-content: center;
+    height: 100%;
     video {
-      width: 100%;
+      width: auto;
       height: 100%;
-      object-fit: cover;
+      object-fit: center;
     }
 
     &::after {
       content: "";
-      position: absolute;
+      /* position: absolute; */
       inset: 0;
-      background: rgba(0, 0, 0, 0.3); // 영상 위 어두운 오버레이
+      /* background: rgba(0, 0, 0, 0.3); */ // 영상 위 어두운 오버레이
       z-index: 1;
     }
   }

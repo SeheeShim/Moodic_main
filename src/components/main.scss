@@ -1,6 +1,6 @@
 .main {
   width: 100%;
-  min-height: 100vh;
+  height: 105rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,50 +10,82 @@
   position: relative;
 }
 
+.corner-logo {
+        position: absolute;
+        bottom: 10rem;
+        right: 5rem;
+        width: 10rem;
+        height: auto;
+        z-index: 20;
+}    /* top(상단으로 가게 하도록) */
+
+
 .controlBtn {
- position: absolute;
- top: 50%;
- left: 50px;
- transform: translateY(-50%);
+  position: absolute;
+  top: 25%;
+  left: 15rem;
+  transform: translateY(-50%);
   .nextBtn, .prevBtn  {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     cursor: pointer;
   }
   .resetBtn {
-    margin-top: 80px; // resetBtn만 아래로 50px 떨어지게
+    /* 추가 스타일 가능 */
   }
-
 }
 
 .mainTextImg {
-  width: 70%;
-  height: 100vh;
-  display: flex;;
-  justify-content: center;
+  padding-top: 15rem;
+  width: 60%;
+  height: 70vh;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  .mainText {
-    width:50%;
-    /* text-align: center; */
-    
-    img { width: 426px; height: 446px; }
-  }
-  .mainImg_slider {
-    width: 50%;
-    position: relative;
 
-    text-align: center;
-    overflow: visible;
-   
+  .mainText {
+    width: 20%;
+    margin-left: 5rem;
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
+
+  .mainImg_slider {
+      width: 35rem;
+      height: 35rem;
+      justify-content: center;
+      align-items: center;
+      .mySwiper {
+        width: 35rem;
+        height: 35rem;
+        
+        .albumImg {
+          width: 35rem;
+          height: 35rem;
+          box-shadow: 2rem 2rem .9 #fff ;
+          /* border-radius: 17rem;
+          object-fit: cover;
+          overflow: hidden; */
+
+          img {
+            width: 35rem;
+            height: 35rem;
+            margin: 0 auto;
+          }
+        }
+      }  /* mySwiper 닫힘 */
+    }  /* mainImg_slider 닫힘 */
+
 }
 
 .bottom-banner {
   position: absolute;
   left: 0;
-  bottom: -10px;
+  bottom: 0;
   width: 100%;
-  height: 80px; // 띠지 높이 조절
+  height: auto; // 띠지 위치 조절
   overflow: hidden;
   background: transparent;
   z-index: 100;
@@ -63,25 +95,130 @@
     align-items: center;
     height: 100%;
     animation: banner-scroll 20s linear infinite;
-    // 이미지가 충분히 많으면 자연스럽게 반복됨
   }
 
-.banner-img {
-    height: 60px; // 이미지 높이 조절
+  .banner-img {
+    height: 5rem;  // 띠지 높이 조절
     user-select: none;
     pointer-events: none;
   }
 }
 
-.mySwiper img {
-  width: 700px;   // 원하는 너비로 수정
-  height: 700px;  // 원하는 높이로 수정
-  object-fit: cover; // 비율 유지하며 잘라내기
-  display: block;
-  margin: 0 auto;
-}
+
+
 
 @keyframes banner-scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
+/* 인스타 슬라이더 영역 */
+.insta-wrapper {
+  position: relative;
+  width: 100%;
+  height: 50rem; /* 전체 펼쳐졌을 때 높이 */
+
+  /* .insta-title-img {
+        position: absolute;
+        top: 10rem;
+        left: 50rem;
+        height: auto;
+        width: 15rem;
+      } */
+
+      .insta-logo {
+        position: absolute;
+        top: 7rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4rem;
+        height: 4rem;
+      }
+  /* 기본 부모 컨테이너에서 overflow hidden 처리 */
+  /* overflow: hidden; */
+      
+
+ .insta-top { //검은띠
+    width: 100%;
+    height: 12.6rem;
+    background: #000;
+    position: absolute;
+    bottom: -9rem;
+  /* background-image: url('../img/bg01.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; */
+/*   padding: 38px 40px 40px; */
+padding: 20px;
+
+    .insta-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      
+    }
+  }
+
+}
+
+.insta-bottom {
+  position: absolute;
+  bottom: -10rem;
+  width: 100%;
+  height: 50rem;
+  padding: 3rem 4rem;
+  /* background-image: url('../img/bg02.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; */
+ 
+
+  /* 기본 높이를 인스타 이미지 높이로 고정 */
+  
+
+  /* 슬라이더를 아래쪽으로 살짝 올려서 튀어나오는 효과 */
+  /* transform: translateY(60%);  *//* 60% 정도 위로 올림 (필요에 맞게 조절) */
+
+  .insta-swiper {
+    /* height: 100%; */
+    /* &:hover{
+        bottom: 2rem;
+      } */
+    .swiper-slide {
+      border-radius: 2rem;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+
+      
+      .slide-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(1.03);
+        }
+      }
+    }
+  }
+}
+
+/* 선택된 앨범 있을 때 insta-wrapper 높이 확장 (예시) */
+.insta-wrapper.active {
+  height: 700px; /* 원래 디자인 높이 */
+  overflow: visible;
+
+  .insta-bottom {
+    transform: translateY(0);
+    height: 100%;
+  }
+
+  .insta-top {
+    display: block; /* 원래 인스타 상단 보이게 */
+  }
+}
+
