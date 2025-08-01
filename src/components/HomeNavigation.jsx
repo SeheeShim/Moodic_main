@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { IoPerson } from "react-icons/io5";
+import { FaSearch } from "react-icons/fa";
+import SearchModal from './SearchModal';
 import './Navigation.scss';
 
 const LOGO_DEFAULT = '/img/Moodic_Logo.png';       // 블랙
@@ -9,6 +11,8 @@ const HomeNavigation = ({ onMainClick, onHeroClick, onChartsClick, onGenreClick,
   const [scrolled, setScrolled] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [logoSrc, setLogoSrc] = useState(LOGO_DEFAULT);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,33 +36,64 @@ const HomeNavigation = ({ onMainClick, onHeroClick, onChartsClick, onGenreClick,
   const handleMouseEnter = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
 
+  // 외부 클릭 시 드롭다운 닫기
+    useEffect(() => {
+      const handleClickOutside = (e) => {
+        if (!e.target.closest('.user-menu')) {
+          setDropdownOpen(false);
+        }
+      };
+      document.addEventListener('click', handleClickOutside);
+      return () => document.removeEventListener('click', handleClickOutside);
+    }, []);
+
   return (
-    <nav className={`mainNav ${scrolled ? 'scrolled' : ''}`}>
-      <button
-        className="logo"
-        onClick={onMainClick}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        <img src={logoSrc} alt="Logo" />
-      </button>
+    <>
+      <nav className={`mainNav ${scrolled ? 'scrolled' : ''}`}>
+        <button
+          className="logo"
+          onClick={onMainClick}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <img src={logoSrc} alt="Logo" />
+        </button>
+  
+        <ul className="mainNav_center">
+          <li><button onClick={onScrollClick}>GRAMMY</button></li>
+          <li><button onClick={onGenreClick}>GENRE</button></li>
+          <li><button onClick={onChartsClick}>TOP100</button></li>        
+          <li><button onClick={onHeroClick}>Hero</button></li>
+          <li><button onClick={onPlayerClick}>PLAYER</button></li>
+        </ul>
+  
+        <ul className="mainNav_right">
+            <li><a href="/Brand">무딕이란?</a></li>
+            <li><input type="text" placeholder="" /></li>
+            <li>
+              <button onClick={() => setModalOpen(true)}><FaSearch /></button>
+            </li>
+            <li className="user-menu">
+              <button onClick={() => setDropdownOpen(prev => !prev)}>
+                <IoPerson size={18} />
+              </button>
+              {isDropdownOpen && (
+                <ul className="dropdown">
+                  <li><a href="/Signup">회원가입</a></li>
+                  <li><a href="/Login">로그인</a></li>
+                </ul>
+              )}
+            </li>
+          </ul>
 
-      <ul className="mainNav_center">
-        <li><button onClick={onScrollClick}>GRAMMY</button></li>
-        <li><button onClick={onGenreClick}>GENRE</button></li>
-        <li><button onClick={onChartsClick}>TOP100</button></li>        
-        <li><button onClick={onHeroClick}>Hero</button></li>
-        <li><button onClick={onPlayerClick}>PLAYER</button></li>
-      </ul>
+              
 
-      <ul className="mainNav_right">
-        <li><a href="/Register">룰룰</a></li>
-        <li><a href="/Brand">무딕이란?</a></li>
-        <li><a href="/Playlist"><IoPerson /></a></li>
-        <li><a href="/Login">로그인</a></li>
-        <li><a href="/Signup">회원가입</a></li>
-      </ul>
-    </nav>
+
+
+
+      </nav>
+      <SearchModal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
+    </>
   );
 };
 
