@@ -1,6 +1,7 @@
 // src/page/CountryChart.jsx
 import React, { useEffect, useState } from 'react';
 import { CircleFlag } from 'react-circle-flags'
+import { FaPlay } from "react-icons/fa";
 import axios from 'axios';
 import { motion } from 'framer-motion';
 import './CountryChart.scss';
@@ -101,7 +102,7 @@ const CountryChart = () => {
             <motion.h2 initial={{ y: -30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5 }}>
               {selectedCountry} <br /> 차트
             </motion.h2>
-            <button className="play-btn">Play</button>
+            <button className="play-btn"><FaPlay /></button>
           </div>
 
           <div className="circle-wrapper">

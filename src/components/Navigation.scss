@@ -84,7 +84,10 @@
           
           cursor: pointer;
           transition: color 0.3s, font-weight 0.3s;
-
+          .NavCIon{
+            font-size: 1.7rem;
+            margin-top: .5rem;
+          }
           
         }
 
@@ -109,66 +112,6 @@
       }
     }
   }
-
-
-/*   .mainNav_center li:nth-child(1) button {
-    color: #fb6f7a;
-    -webkit-text-stroke: 0;
-
-    &:hover {
-      color: transparent;
-      -webkit-text-stroke: 1px #fb6f7a;
-      border: none;
-    }
-  }
-
-
-  .mainNav_center li:nth-child(2) button {
-    color: #f47a4b;
-    -webkit-text-stroke: 0;
-
-    &:hover {
-      color: transparent;
-      -webkit-text-stroke: 1px #f47a4b;
-      border: none;
-    }
-  }
-
-
-  .mainNav_center li:nth-child(3) button {
-    color: #fed440;
-    -webkit-text-stroke: 0;
-
-    &:hover {
-      color: transparent;
-      -webkit-text-stroke: 1px #fed440;
-      border: none;
-    }
-  }
-
-
-  .mainNav_center li:nth-child(4) button {
-    color: #b474b4;
-    -webkit-text-stroke: 0;
-
-    &:hover {
-      color: transparent;
-      -webkit-text-stroke: 1px #b474b4;
-      border: none;
-    }
-  }
-
-
-  .mainNav_center li:nth-child(5) button {
-    color: #55a3ff;
-    -webkit-text-stroke: 0;
-
-    &:hover {
-      color: transparent;
-      -webkit-text-stroke: 1px #55a3ff;
-      border: none;
-  }
-  } */
 
 
 
@@ -223,23 +166,26 @@
 
       .dropdown {
         position: absolute;
-        top: 2.8rem;
-        right: 0;
-        background: #fff;
-      
-        width: 120px;
+        top: 2.82rem;
+        right: -2rem;
+        background: url(../img/ivory_bg.jpg);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        width: 6rem;
+        height: 6rem;
         padding: 8px 0;
         z-index: 999;
 
         li {
           padding: 8px 12px;
           a {
+
             color: #333;
             text-decoration: none;
             font-size: 14px;
-
+            transition: color 0.3s;
             &:hover {
-              background: #f5f5f5;
+              color: #b474b4;
+              font-weight: 900;
             }
           }
         }

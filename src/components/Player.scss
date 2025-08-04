@@ -4,7 +4,6 @@ $padding: 11px;
 $circle-toggled-left: calc(#{$toggle-width} - #{$circle-size} - #{$padding});
 
 .section.makes {
-  padding-top: 4rem;
   background-color: #ebe8db;
   color: #2a2119;
   padding: 2rem 0;
@@ -12,7 +11,31 @@ $circle-toggled-left: calc(#{$toggle-width} - #{$circle-size} - #{$padding});
   width: 100%;
   height: 100vh;
   z-index: 22;
+  position: relative;
+  
+  .belt {
+      width: 100%;
+      height: 4rem; // 띠지 높이 조절
+      top: 0;
+      overflow: hidden;
+      background: transparent;
+      z-index: 100;
+      position: absolute;
 
+      .banner-track {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        animation: banner-scroll 20s linear infinite;
+        // 이미지가 충분히 많으면 자연스럽게 반복됨
+      }
+
+    .banner-img {
+        height: 4rem; // 이미지 높이 조절
+        user-select: none;
+        pointer-events: none;
+      }
+    }
   .master-snap-sections {
     width: 100%;
     height: 100vh;

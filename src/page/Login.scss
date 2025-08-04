@@ -1,10 +1,5 @@
 .login-wrap {
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
+  background: url('/img/ivory_bg.jpg') no-repeat center center / cover;
   a {
     text-decoration: none;
     color: black;
@@ -13,7 +8,6 @@
   .login-header {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
     position: fixed;
     top: 0;
     left: 0;
@@ -32,77 +26,77 @@
   }
 
   .main {
+    background: none;
     width: 100%;
     height: 100vh;
-    background: url('/img/ivory_bg.jpg') no-repeat center center / cover;
     position: relative;
     overflow: hidden;
 
     
-  .left img {
-    width: 540px;
-    position: absolute;
-    top: 330px;
-    left: 400px;
-  }
+    .left img {
+      width: 540px;
+      position: absolute;
+      top: 15rem;
+      left: 400px;
+    }
 
-  .icon_cat img {
-    width: 120px;
-    position: absolute;
-    top: 677px;
-    left: 770px;
-    z-index: 10;
-  }
+    .icon_cat img {
+      width: 120px;
+      position: absolute;
+      top: 37rem;
+      left: 770px;
+      z-index: 10;
+    }
 
-  .icon_global img {
-    width: 224px;
-    height: 224px;
-    position: absolute;
-    left: 754px;
-    top: 197px;
-    z-index: 9;
-  }
+    .icon_global img {
+      width: 224px;
+      height: 224px;
+      position: absolute;
+      left: 754px;
+      top: 8rem;
+      z-index: 9;
+    }
 
-  .icon_pink img {
-    width: 201px;
-    height: 185px;
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-    z-index: 10;
-  }
+    .icon_pink img {
+      width: 201px;
+      height: 185px;
+      position: absolute;
+      right: 5rem;
+      bottom: 4rem;
+      z-index: 10;
+    }
 
-  .icon_wave1 img {
-    width: 314px;
-    position: absolute;
-    left: 30px;
-    bottom: 0px;
-    z-index: 9;
-  }
+    .icon_wave1 img {
+      width: 314px;
+      position: absolute;
+      left: 30px;
+      bottom: 0;
+      z-index: 9;
+    }
 
-  .icon_wave2 img {
-    height: 410px;
-    position: absolute;
-    right: 0;
-    top: 175px;
-    z-index: 9;
-  }
+    .icon_wave2 img {
+      height: 410px;
+      position: absolute;
+      right: 0;
+      top: 175px;
+      z-index: 9;
+    }
 
-  .icon_person img {
-    width: 137px;
-    height: 137px;
-    position: absolute;
-    right: 600px;
-    top: 224px;
-    z-index: 10;
-  }
+    .icon_person img {
+      width: 137px;
+      height: 137px;
+      position: absolute;
+      right: 600px;
+      top: 10rem;
+      z-index: 10;
+    }
 
     form {
       width: 440px;
       height: 530px;
       position: absolute;
-    top: 360px;
-    right: 450px;
+      top: 18.5rem;
+      right: 450px;
 
       fieldset {
         border: 1px solid #222;
@@ -142,6 +136,7 @@
           }
 
           .submit-btn {
+            
             background: #000;
             color: #fff;
             padding: 10px;
@@ -150,8 +145,11 @@
 
           .signup-link {
             text-align: center;
-            padding-top: 40px;
-            color: blue;
+            margin-top: 1rem;
+            background: #000;
+            color: #fff;
+            padding: 10px;
+            height: 50px;
           }
         }
       }

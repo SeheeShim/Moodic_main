@@ -20,12 +20,12 @@ const PlayerData = [
     images: ['/img/music/swift.jfif', '/img/music/swift1.jfif'],
   },
   {
-    label: 'SEVENTEEN',
-    texts: ['God of Music', 'The Eaters'],
+    label: 'DAY6',
+    texts: ['Congratulations', 'DANCE DANCE'],
     buttonColor: 'rgb(255, 133, 47)',
     buttonLabel: 'Make it fun',
     buttonLabelAlt: 'BOOOOOOOOM',
-    description: '《SEVENTEENTH HEAVEN》',
+    description: '《SUNRISE》',
     images: ['/img/music/day6.jpg', '/img/music/day6.jfif'],
   },
 ];

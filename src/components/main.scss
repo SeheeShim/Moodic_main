@@ -25,23 +25,27 @@
 .controlBtn {
   position: absolute;
   top: 28%;
-  left: 15rem;
+  left: 10rem;
   transform: translateY(-50%);
-
+  
   .nextBtn,
   .prevBtn {
-    margin-top: 4rem;
-    font-size: 3.5rem;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+    font-size: 3rem;
     cursor: pointer;
   }
 
   .resetBtn {
-    margin-top: 30px; // 또는 padding/margin으로 간격 조정
-    margin-left: -8px;
+    margin-top: .5rem;
+    
+    cursor: pointer;
     .insta-logo {
-      width: 55px;
-      height: 55px;
-      object-fit: contain;
+      
+      width: 4rem;
+      height: 4rem;
+      
     }
   }
 
@@ -50,19 +54,41 @@
 /* 메인 텍스트 & 앨범 슬라이더 */
 .mainTextImg {
   padding-top: 15rem;
-  width: 60%;
-  height: 70vh;
+  width: 65%;
+  height: 80vh;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  
 
   .mainText {
-    width: 20%;
-    margin-left: 5rem;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4rem;
 
-    img {
-      width: 100%;
-      height: auto;
+    .mainTitle {
+      font-size: 4rem;
+      font-weight: 700;
+      color: #000;
+      line-height: 1.2;
+    }
+
+    .mainSubtitle {
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: #333;
+      line-height: 1.5;
+      span{
+        margin-top: 10rem;
+        font-size: 1rem;
+        .pointer{
+          margin-top: .2rem;
+          font-size: 1.2rem;
+          transform: rotate(90deg);
+        }
+
+      }
     }
   }
 
@@ -109,7 +135,7 @@
     height: 12.6rem;
     background: #000;
     position: absolute;
-    bottom: -14rem;
+    bottom: -9rem;
     padding: 20px;
 
     .insta-header {
@@ -121,7 +147,7 @@
 
   .insta-bottom {
     position: absolute;
-    bottom: -15rem;
+    bottom: -10rem;
     width: 100%;
     height: 50rem;
     padding: 3rem 4rem;

@@ -6,6 +6,18 @@ import './Hero.scss';
 const Hero = () => {
   return (
     <section id="hero" className="hero-section">
+      <div className="belt">
+        <div className="banner-track">
+          {[...Array(10)].map((_, i) => (
+            <img
+              key={i}
+              src={process.env.PUBLIC_URL + 'img/belt/belt_black.png'}
+              alt="banner"
+              className="banner-img"
+            />
+          ))}
+        </div>
+      </div>
       <div className="video-hero">
         <video
           autoPlay
@@ -15,7 +27,7 @@ const Hero = () => {
           className="background-video"
           /* poster="/img/123(14).jpg" */
         >
-          <source src="/video/Moodic_Video2.mp4" type="video/mp4" />
+          <source src="/video/Moodic_Video.mp4" type="video/mp4" />
           
         </video>
 

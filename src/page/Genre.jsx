@@ -5,6 +5,7 @@ import axios from 'axios';
 import './Genre.scss';
 import { gsap } from 'gsap';
 
+
 const genres = [
   { label: 'Pop', value: 'pop', image: '/img/genre/pop.png' },
   { label: 'K-Pop', value: 'k-pop', image: '/img/genre/kpop.png' },
@@ -78,9 +79,9 @@ const Genre = () => {
   {/* 첫 줄 */}
   <div className="genre-line">
     {[
-      { word: "PLAY", color: "#ff69b4" },
-      { word: "THE", color: "#f47a4b" },
-      { word: "MOOD", color: "#f6e636" },
+      { word: "PLAY", /* color: "#ff69b4" */ },
+      { word: "THE", /* color: "#f47a4b" */ },
+      { word: "MOOD", /* color: "#f6e636" */ },
     ].map(({ word, color }, wordIndex) => (
       <span key={wordIndex} className="word" style={{ color }}>
         {word.split("").map((char, i) => (
@@ -94,9 +95,9 @@ const Genre = () => {
   {/* 두 번째 줄 */}
   <div className="genre-line">
     {[
-      { word: "FEEL", color: "#37ff8a" },
-      { word: "THE", color: "#00cfff" },
-      { word: "MUSIC", color: "#a47aff" },
+      { word: "FEEL", /* color: "#37ff8a" */ },
+      { word: "THE", /* color: "#00cfff" */ },
+      { word: "MUSIC", /* color: "#a47aff" */ },
     ].map(({ word, color }, wordIndex) => (
       <span key={wordIndex} className="word" style={{ color }}>
         {word.split("").map((char, i) => (
@@ -131,18 +132,19 @@ const Genre = () => {
                 {genres.map((g) => (
                   <button
                     key={g.value}
-                    className={selectedGenre.value === g.value ? 'active' : ''}
+                    className={`genre-btn ${g.value} ${selectedGenre.value === g.value ? 'active' : ''}`}
                     onClick={() => setSelectedGenre(g)}
                   >
                     {g.label}
                   </button>
                 ))}
+
               </nav>
             </div>
-          <div className="genre-image">
-            
+          <div className={`genre-image ${selectedGenre.value}`}>
             <img src={selectedGenre.image} alt={selectedGenre.label} />
           </div>
+
         </div>
         <div className='genre-content-right'>
             <div className="track-list">

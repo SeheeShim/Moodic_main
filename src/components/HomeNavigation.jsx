@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { IoPerson } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
+import { BiSolidMoviePlay } from "react-icons/bi";
 import SearchModal from './SearchModal';
 import './Navigation.scss';
 
@@ -63,7 +64,7 @@ const HomeNavigation = ({ onMainClick, onHeroClick, onChartsClick, onGenreClick,
           <li><button onClick={onScrollClick}>GRAMMY</button></li>
           <li><button onClick={onGenreClick}>GENRE</button></li>
           <li><button onClick={onChartsClick}>TOP100</button></li>        
-          <li><button onClick={onHeroClick}>Hero</button></li>
+          <li><button onClick={onHeroClick}><BiSolidMoviePlay className='NavCIon' /></button></li>
           <li><button onClick={onPlayerClick}>PLAYER</button></li>
         </ul>
   

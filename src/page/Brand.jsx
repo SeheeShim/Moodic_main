@@ -23,16 +23,8 @@ const Brand = () => {
     return () => document.removeEventListener('click', handleClickOutside);
   }, []);
 
-/*   const toggleMenu = (e) => {
-    e.preventDefault();
-    const menu = menuRef.current;
-    if (menu) {
-      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-    }
-  }; */
-
   return (
-    <div id="wrap" className="brand-page">
+    <div id="brandWrap" className="brand-page">
 
       {/* Main */}
       <main id="content">

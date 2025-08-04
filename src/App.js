@@ -9,9 +9,8 @@ import Brand from './page/Brand';
 import Playlist from './components/Playlist';
 import Signup from './page/Signup';
 import Footer from './components/Footer';
-import Preloader from './components/Preloader';
-import HomeNavigation from './components/HomeNavigation';
 import GlobalNavigation from './components/GlobalNavigation';
+import ScrollToTopButton from './components/ScrollToTopButton';
 
 
 function App() {
@@ -20,8 +19,6 @@ function App() {
 
   return (
     <>
-      <Preloader />
-      
       {/* 조건부 내비게이션 */}
       {isHome ? <></> : <GlobalNavigation />}
 
@@ -35,6 +32,7 @@ function App() {
       </Routes>
 
       <Footer />
+      <ScrollToTopButton />
     </>
   );
 }

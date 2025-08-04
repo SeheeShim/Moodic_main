@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { TbPlayerTrackNextFilled, TbPlayerTrackPrevFilled } from "react-icons/tb";
+import { FaArrowPointer } from "react-icons/fa6";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCards, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -41,17 +42,26 @@ const Main = () => {
 
       <div className="mainTextImg">
         <div className="mainText">
-          <img src={process.env.PUBLIC_URL + '/img/home/home_text.png'} alt="main-title" />
+          <h1 className="mainTitle">What's your mood today?</h1>
+          <p className="mainSubtitle">Find it with <strong>MoodFlow</strong>.<br />
+            <span>Tap an album and slide through stories that flow with the music.<FaArrowPointer className='pointer'/></span>
+          </p>
         </div>
+
+        {/* 오늘의 Mood는 어떤가요?
+        MoodFlow에서
+        당신의 Mood 앨범을 클릭하면, 음악과 관련된 스토리가 흘러갑니다. */}
 
         <div className="mainImg_slider">
           <Swiper
-            effect={'cards'}
-            grabCursor={true}
-            modules={[EffectCards]}
-            className="mySwiper"
-            ref={swiperRef}
-          >
+              effect="cards"
+              grabCursor={true}
+              loop={true}
+              autoplay={{ delay: 1500, disableOnInteraction: false }}
+              modules={[EffectCards, Autoplay]}
+              className="mySwiper"
+              ref={swiperRef}
+            >
             {albumData.map((album, idx) => (
               <SwiperSlide className='albumImg' key={idx}>
                 <img

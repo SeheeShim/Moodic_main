@@ -18,6 +18,18 @@ const Player = () => {
 
   return (
     <section id="makes" className="section makes">
+      <div className="belt">
+        <div className="banner-track">
+            {[...Array(10)].map((_, i) => (
+              <img
+                key={i}
+                src={process.env.PUBLIC_URL + 'img/belt/belt_black.png'}
+                alt="banner"
+                className="banner-img"
+                />
+                ))}
+                </div>
+              </div>            
       <div className="master-snap-sections">
         <Swiper spaceBetween={50} slidesPerView={1}>
           {PlayerData.map((sec, i) => {
@@ -26,6 +38,7 @@ const Player = () => {
             return (
               <SwiperSlide key={i}>
                 <div className={`master-snap-section _${i + 1} ${sec.label === 'Tayler Swift' ? 'sectionTayler' : ''}`}>
+                  
                   {/* 이미지 토글 */}
                   <img
                     key={isToggled ? 'alt' : 'main'}

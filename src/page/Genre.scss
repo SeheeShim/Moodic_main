@@ -7,7 +7,7 @@
   padding-top: 4rem;
   box-sizing: border-box;
   background-color: #fff;
-  color: #333;
+  color: #000;
   background: url('../img/ivory_bg.jpg') no-repeat center center/cover;
   overflow: hidden;
   background-attachment: fixed;
@@ -17,8 +17,8 @@
 .genre-header-image-txt {
   position: absolute;
   width: 100%;
-  top: 12rem;
-  left: -20%;
+  top: 11rem;
+  left: -22%;
   transform: translateY(-25%);
   z-index: 2;
   font-size: 3.4rem;
@@ -45,16 +45,17 @@
 
 .genre-header-image-orange{
   position: absolute;
-  width: 13rem;
-  bottom: 3rem;
-  right: 0;
-  z-index: 1;
+  width: 14rem;
+  transform: rotate(180deg);
+  top: 4.5rem;
+  left: 0;
+  z-index: 99999;
 }
 .genre-header-image-green{
   position: absolute;
-  width: 13rem;
-  top: 5rem;
-  left: 1rem;
+  width: 20rem;
+  bottom: -3rem;
+  right: -6rem;
   z-index: 1;
 }
 
@@ -74,13 +75,10 @@
 .genre-content-left {
   display: flex;
   justify-content: flex-start;
-  // background: #FFFFC3;
   border-radius: 25px;
   width: 50%;
   height: 83%;
-  // gap: 11rem;
   align-items: flex-start;
- /*  flex-wrap: wrap; */
   .genre-navWrap {
   position: absolute;
   top: 12.3rem;
@@ -107,7 +105,7 @@
     border: none;
     cursor: pointer;
     position: relative;
-    left: 0;
+    left: -0.65rem;
     transition: all 0.2s ease; // 💡 부드럽게 커지는 애니메이션 추가
     
     &:hover {
@@ -115,28 +113,72 @@
       color: white;
       border-color: #f47a4b;
       width: 6rem;  // ← 사이즈 커지게!
-      left: -1rem;
+      left: -1.65rem;
     }
 
     &.active {
-      background-color: #f47a4b;
+      // background-color: #f47a4b;
       color: white;
       width: 6rem;
-      left: -1rem;
+      left: -1.65rem;
     }
   }
 }
+.genre-nav {
+  button.genre-btn {
+    transition: all 0.2s ease;
+    
+
+    &.pop:hover,
+    &.pop.active {
+      background-color: #FFFFC3;
+      color: black;
+    }
+
+    &.k-pop:hover,
+    &.k-pop.active {
+      background-color: #FF32FF;
+      color: white;
+    }
+
+    &.dance:hover,
+    &.dance.active {
+      background-color: #00B475;
+      color: white;
+    }
+
+    &.hip-hop:hover,
+    &.hip-hop.active {
+      background-color: #2054FF;
+      color: white;
+    }
+
+    &.ballad:hover,
+    &.ballad.active {
+      background-color: #BE4A01;
+      color: white;
+    }
+
+    &.ost:hover,
+    &.ost.active {
+      background-color: #FF4B4C;
+      color: white;
+    }
+  }
+}
+
   .genre-image {
     flex: 1;
     padding-top: 11rem;
     img {
-      margin-left: 12rem;
+      margin-left: 13rem;
       width: 30rem;
       max-width: 500px;
       border-radius: 16px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
   }
+  
 
  
 }
@@ -145,7 +187,7 @@
   margin-top: -3.5rem;
   background: #FFFFC3;
   border-radius: 25px;
-  width: 45%;
+  width: 48%;
   height: 88%;
   // gap: 11rem;
   justify-content: center;
@@ -161,9 +203,9 @@
     .track-item {
       display: flex;
       align-items: center;
-        gap: 1rem;
-        
-        position: relative;
+      gap: 1rem;
+      width: 46rem;
+      position: relative;
         
         .album-art {
           width: 60px;
@@ -180,6 +222,7 @@
           margin: 0 0.5rem;
         }
         .track-info {
+          z-index: 999;
           display: flex;
           background: #fff;
           padding: 0.6rem 1rem 0.3rem 1rem;
@@ -187,7 +230,7 @@
           border-radius: 10px;
           box-shadow: 0 2px 8px rgba(0,0,0,0.07);
           height: 4rem;
-          width: 37rem;
+          width: 43rem;
           justify-content: space-between;
           .track-info-left{
             height: 100%;
