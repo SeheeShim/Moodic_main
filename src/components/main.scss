@@ -1,6 +1,7 @@
+
 .main {
   width: 100%;
-  height: 105rem;
+  height: 110rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,31 +11,43 @@
   position: relative;
 }
 
+/* 우측 하단 로고 */
 .corner-logo {
-        position: absolute;
-        bottom: 10rem;
-        right: 5rem;
-        width: 10rem;
-        height: auto;
-        z-index: 20;
-}    /* top(상단으로 가게 하도록) */
-
-
-.controlBtn {
   position: absolute;
-  top: 25%;
-  left: 15rem;
-  transform: translateY(-50%);
-  .nextBtn, .prevBtn  {
-    width: 45px;
-    height: 45px;
-    cursor: pointer;
-  }
-  .resetBtn {
-    /* 추가 스타일 가능 */
-  }
+  top: 10rem; /* 변경: 하단 → 상단 */
+  right: 5rem;
+  width: 10rem;
+  height: auto;
+  z-index: 20;
 }
 
+/* 컨트롤 버튼 */
+.controlBtn {
+  position: absolute;
+  top: 28%;
+  left: 15rem;
+  transform: translateY(-50%);
+
+  .nextBtn,
+  .prevBtn {
+    margin-top: 4rem;
+    font-size: 3.5rem;
+    cursor: pointer;
+  }
+
+  .resetBtn {
+    margin-top: 30px; // 또는 padding/margin으로 간격 조정
+    margin-left: -8px;
+    .insta-logo {
+      width: 55px;
+      height: 55px;
+      object-fit: contain;
+    }
+  }
+
+}
+
+/* 메인 텍스트 & 앨범 슬라이더 */
 .mainTextImg {
   padding-top: 15rem;
   width: 60%;
@@ -46,6 +59,7 @@
   .mainText {
     width: 20%;
     margin-left: 5rem;
+
     img {
       width: 100%;
       height: auto;
@@ -53,39 +67,110 @@
   }
 
   .mainImg_slider {
-      width: 35rem;
-      height: 35rem;
-      justify-content: center;
-      align-items: center;
-      .mySwiper {
-        width: 35rem;
-        height: 35rem;
-        
-        .albumImg {
-          width: 35rem;
-          height: 35rem;
-          box-shadow: 2rem 2rem .9 #fff ;
-          /* border-radius: 17rem;
-          object-fit: cover;
-          overflow: hidden; */
+    width: 35rem;
+    height: 35rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-          img {
-            width: 35rem;
-            height: 35rem;
-            margin: 0 auto;
+    .mySwiper {
+      width: 100%;
+      height: 100%;
+
+      .albumImg {
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 0.4rem 2rem rgba(255, 255, 255, 0.6);
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.3s ease;
+          cursor: pointer;
+
+          &:hover {
+            transform: scale(1.03);
           }
         }
-      }  /* mySwiper 닫힘 */
-    }  /* mainImg_slider 닫힘 */
-
+      }
+    }
+  }
 }
 
+/* 인스타그램 영역 */
+.insta-wrapper {
+  position: relative;
+  width: 100%;
+  height: 50rem;
+
+  .insta-top {
+    width: 100%;
+    height: 12.6rem;
+    background: #000;
+    position: absolute;
+    bottom: -14rem;
+    padding: 20px;
+
+    .insta-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+  }
+
+  .insta-bottom {
+    position: absolute;
+    bottom: -15rem;
+    width: 100%;
+    height: 50rem;
+    padding: 3rem 4rem;
+    transition: transform 0.4s ease;
+
+    .insta-swiper {
+      .swiper-slide {
+        border-radius: 2rem;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+
+        .slide-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: transform 0.3s ease;
+          cursor: pointer;
+
+          &:hover {
+            transform: scale(1.03);
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 활성화 시 확장 효과 */
+.insta-wrapper.active {
+  height: 700px;
+  overflow: visible;
+
+  .insta-bottom {
+    transform: translateY(0);
+    height: 100%;
+  }
+
+  .insta-top {
+    display: block;
+  }
+}
+
+/* 하단 배너 */
 .bottom-banner {
   position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
-  height: auto; // 띠지 위치 조절
   overflow: hidden;
   background: transparent;
   z-index: 100;
@@ -98,127 +183,18 @@
   }
 
   .banner-img {
-    height: 5rem;  // 띠지 높이 조절
+    height: 5rem;
     user-select: none;
     pointer-events: none;
   }
 }
 
-
-
-
+/* 배너 무한 스크롤 애니메이션 */
 @keyframes banner-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-/* 인스타 슬라이더 영역 */
-.insta-wrapper {
-  position: relative;
-  width: 100%;
-  height: 50rem; /* 전체 펼쳐졌을 때 높이 */
-
-  /* .insta-title-img {
-        position: absolute;
-        top: 10rem;
-        left: 50rem;
-        height: auto;
-        width: 15rem;
-      } */
-
-      .insta-logo {
-        position: absolute;
-        top: 7rem;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 4rem;
-        height: 4rem;
-      }
-  /* 기본 부모 컨테이너에서 overflow hidden 처리 */
-  /* overflow: hidden; */
-      
-
- .insta-top { //검은띠
-    width: 100%;
-    height: 12.6rem;
-    background: #000;
-    position: absolute;
-    bottom: -9rem;
-  /* background-image: url('../img/bg01.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover; */
-/*   padding: 38px 40px 40px; */
-padding: 20px;
-
-    .insta-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-
-      
-    }
+  0% {
+    transform: translateX(0);
   }
-
-}
-
-.insta-bottom {
-  position: absolute;
-  bottom: -10rem;
-  width: 100%;
-  height: 50rem;
-  padding: 3rem 4rem;
-  /* background-image: url('../img/bg02.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover; */
- 
-
-  /* 기본 높이를 인스타 이미지 높이로 고정 */
-  
-
-  /* 슬라이더를 아래쪽으로 살짝 올려서 튀어나오는 효과 */
-  /* transform: translateY(60%);  *//* 60% 정도 위로 올림 (필요에 맞게 조절) */
-
-  .insta-swiper {
-    /* height: 100%; */
-    /* &:hover{
-        bottom: 2rem;
-      } */
-    .swiper-slide {
-      border-radius: 2rem;
-      overflow: hidden;
-      transition: transform 0.3s ease;
-
-      
-      .slide-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        transition: transform 0.3s ease;
-        cursor: pointer;
-
-        &:hover {
-          transform: scale(1.03);
-        }
-      }
-    }
+  100% {
+    transform: translateX(-50%);
   }
 }
-
-/* 선택된 앨범 있을 때 insta-wrapper 높이 확장 (예시) */
-.insta-wrapper.active {
-  height: 700px; /* 원래 디자인 높이 */
-  overflow: visible;
-
-  .insta-bottom {
-    transform: translateY(0);
-    height: 100%;
-  }
-
-  .insta-top {
-    display: block; /* 원래 인스타 상단 보이게 */
-  }
-}
-

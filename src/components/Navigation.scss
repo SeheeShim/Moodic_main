@@ -1,3 +1,5 @@
+@import './fonts.scss'; 
+
 .mainNav {
   width: 100%;
   position: fixed;
@@ -30,6 +32,7 @@
         color: lighten(#f47a4b, 10%);
       } */
     }
+    
   }
 
   .logo {
@@ -60,6 +63,12 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    @font-face {
+      font-family: 'chab';
+      src: url('./fonts/chab.ttf') format('truetype');
+      font-weight: 900;
+      font-style: normal;
+    }
 
       li {
       list-style: none;
@@ -71,7 +80,7 @@
           border: none;
           background: none;
           font-size: 1.1rem;
-          font-weight: 700;
+          font-weight: 900;
           
           cursor: pointer;
           transition: color 0.3s, font-weight 0.3s;

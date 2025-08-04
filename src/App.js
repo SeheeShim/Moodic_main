@@ -13,6 +13,7 @@ import Preloader from './components/Preloader';
 import HomeNavigation from './components/HomeNavigation';
 import GlobalNavigation from './components/GlobalNavigation';
 
+
 function App() {
   const location = useLocation();
   const isHome = location.pathname === '/';

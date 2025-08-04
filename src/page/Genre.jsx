@@ -58,7 +58,7 @@ const Genre = () => {
             tag: selectedGenre.value,
             api_key: API_KEY,
             format: 'json',
-            limit: 9,
+            limit: 10,
           },
         });
         setAlbums(res.data.albums.album);
@@ -73,23 +73,42 @@ const Genre = () => {
   return (
     <div className="genre-page">
       <div className="genre-header">
+        
         <div className="genre-header-image-txt" ref={textRef}>
-          {[
-            { word: "PLAY", color: "#ff69b4" },      // 분홍
-            { word: "THE", color: "#f47a4b" },       // 주황
-            { word: "MOOD", color: "#f6e636" },      // 노랑
-            { word: "FEEL", color: "#37ff8a" },      // 초록
-            { word: "THE", color: "#00cfff" },       // 하늘
-            { word: "MUSIC", color: "#a47aff" },     // 보라
-          ].map(({ word, color }, wordIndex) => (
-            <span key={wordIndex} className="word" style={{ color }}>
-              {word.split("").map((char, i) => (
-                <span key={`${wordIndex}-${i}`} className="char">{char}</span>
-              ))}
-              <span className="char">&nbsp;</span>
-            </span>
-          ))}
-        </div>
+  {/* 첫 줄 */}
+  <div className="genre-line">
+    {[
+      { word: "PLAY", color: "#ff69b4" },
+      { word: "THE", color: "#f47a4b" },
+      { word: "MOOD", color: "#f6e636" },
+    ].map(({ word, color }, wordIndex) => (
+      <span key={wordIndex} className="word" style={{ color }}>
+        {word.split("").map((char, i) => (
+          <span key={`${wordIndex}-${i}`} className="char">{char}</span>
+        ))}
+        <span className="char">&nbsp;</span>
+      </span>
+    ))}
+  </div>
+
+  {/* 두 번째 줄 */}
+  <div className="genre-line">
+    {[
+      { word: "FEEL", color: "#37ff8a" },
+      { word: "THE", color: "#00cfff" },
+      { word: "MUSIC", color: "#a47aff" },
+    ].map(({ word, color }, wordIndex) => (
+      <span key={wordIndex} className="word" style={{ color }}>
+        {word.split("").map((char, i) => (
+          <span key={`${wordIndex + 3}-${i}`} className="char">{char}</span>
+        ))}
+        <span className="char">&nbsp;</span>
+      </span>
+    ))}
+  </div>
+</div>
+
+
 
         <img
           src={process.env.PUBLIC_URL + "/img/genre/orange_icon.png"}
@@ -106,9 +125,8 @@ const Genre = () => {
       
 
       <div className="genre-container">
-        <div className="genre-content" >
-          <div className="genre-image">
-            <div className='genre-navWrap'>
+        <div className="genre-content-left" >
+          <div className='genre-navWrap'>
               <nav className="genre-nav">
                 {genres.map((g) => (
                   <button
@@ -121,33 +139,54 @@ const Genre = () => {
                 ))}
               </nav>
             </div>
+          <div className="genre-image">
+            
             <img src={selectedGenre.image} alt={selectedGenre.label} />
           </div>
-
-          <div className="track-list">
-            {albums.map((album, idx) => (
-              <div key={idx} className="track-item">
-                <img
-                  src={getImageUrl(album)}
-                  alt={album.name}
-                  className="album-art"
-                />
-                <div className="divider"></div>
-                <div className="track-info">
-                  <div className='track-info-left'>
-                    <h3>{album.name}</h3>
-                    <p>{album.artist.name}</p>
+        </div>
+        <div className='genre-content-right'>
+            <div className="track-list">
+              {albums.map((album, idx) => (
+                <div
+                  key={idx}
+                  className="track-item"
+                  // className={`track-item ${idx % 2 === 0 ? 'left' : 'right'}`}
+                >
+                  <img
+                    src={getImageUrl(album)}
+                    alt={album.name}
+                    className="album-art"
+                  />
+                  <div className="zigzag-line"></div> {/* ← 라인 추가 */}
+                  <div className="track-info">
+                    <div className='track-info-left'>
+                      <h3>{album.name}</h3>
+                      <p>{album.artist.name}</p>
+                    </div>
+                    <a href={album.url} target="_blank" rel="noopener noreferrer">
+                      <IoIosMore />
+                    </a>
                   </div>
-                  <a href={album.url} target="_blank" rel="noopener noreferrer">
-                    <IoIosMore />
-                  </a>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+        </div>
+        
+      </div>
+      <div className="footer__up">
+        <div className="banner-track">
+          {[...Array(10)].map((_, i) => (
+            <img
+              key={i}
+              src={process.env.PUBLIC_URL + 'img/belt/belt_color.png'}
+              alt="banner"
+              className="banner-img"
+            />
+          ))}
         </div>
       </div>
     </div>
+    
   );
 };
 

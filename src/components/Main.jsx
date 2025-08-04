@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import { TbPlayerTrackNextFilled, TbPlayerTrackPrevFilled } from "react-icons/tb";
-import { BsShuffle } from "react-icons/bs";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCards, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -12,6 +11,7 @@ import albumData from '../data/MainData';
 const Main = () => {
   const swiperRef = useRef(null);
   const [selectedAlbum, setSelectedAlbum] = useState(albumData[0]);
+  const [hoveredAlbum, setHoveredAlbum] = useState(null); // 추가
 
   const handleNext = () => {
     swiperRef.current?.swiper.slideNext();
@@ -30,7 +30,13 @@ const Main = () => {
       <div className="controlBtn">
         <div className="nextBtn" onClick={handleNext}><TbPlayerTrackNextFilled /></div>
         <div className="prevBtn" onClick={handlePrev}><TbPlayerTrackPrevFilled /></div>
-        <div className="resetBtn" onClick={handleReset}><BsShuffle /></div>
+        <div className="resetBtn">
+          <img
+            className="insta-logo"
+            src={process.env.PUBLIC_URL + '/img/instagram/insta_icon.png'}
+            alt="instagram-logo"
+          />
+        </div>
       </div>
 
       <div className="mainTextImg">
@@ -52,6 +58,11 @@ const Main = () => {
                   src={process.env.PUBLIC_URL + '/' + album.img}
                   alt={album.name}
                   onClick={() => setSelectedAlbum(album)}
+                  onMouseEnter={() => {
+                    setHoveredAlbum(album.name);
+                    setSelectedAlbum(album);
+                  }}
+                  onMouseLeave={() => setHoveredAlbum(null)}
                   style={{ cursor: 'pointer' }}
                 />
               </SwiperSlide>
@@ -62,29 +73,18 @@ const Main = () => {
 
       {selectedAlbum && (
         <div className="insta-wrapper">
-          {/* <img
-                className="insta-title-img"
-                src={process.env.PUBLIC_URL + '/img/instagram/insta.png'}
-                alt="instagram-title"
-              /> */}
-              <img
-                className="insta-logo"
-                src={process.env.PUBLIC_URL + '/img/instagram/insta_icon.png'}
-                alt="instagram-logo"
-              />
-          <img
-            className="corner-logo"
-            src={process.env.PUBLIC_URL + '/img/instagram/black_logo.png'}
-            alt="corner-logo"
-          />
-
+        
           <div className="insta-top">
-            <div className="insta-header">
-              
-            </div>
+            <div className="insta-header"></div>
           </div>
 
-          <div className="insta-bottom">
+          <div
+            className="insta-bottom"
+            style={{
+              transform: hoveredAlbum === selectedAlbum.name ? 'translateY(-80px)' : 'translateY(0)',
+              transition: 'transform 0.4s ease',
+            }}
+          >
             <Swiper
               modules={[Autoplay]}
               slidesPerView={4}
