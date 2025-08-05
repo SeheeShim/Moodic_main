@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
+import { Scrollbar } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-
+import 'swiper/css/scrollbar';
 import PlayerData from '../data/PlayerData.js';
 import './Player.scss';
 
@@ -31,10 +31,16 @@ const Player = () => {
                 </div>
               </div>            
       <div className="master-snap-sections">
-        <Swiper spaceBetween={50} slidesPerView={1}>
+        <Swiper className='swiper'
+          spaceBetween={50}
+          slidesPerView={1}
+          scrollbar={{
+            hide: false, // true로 하면 마우스 오버시에만 보임
+          }}
+          modules={[Scrollbar]} // 모듈 추가
+        ><div className="swiper-scrollbar" />
           {PlayerData.map((sec, i) => {
             const isToggled = toggledIndexes.includes(i);
-
             return (
               <SwiperSlide key={i}>
                 <div className={`master-snap-section _${i + 1} ${sec.label === 'Tayler Swift' ? 'sectionTayler' : ''}`}>
@@ -51,7 +57,7 @@ const Player = () => {
                     <div className="text-wrap-snap">
                       <div className="label">{sec.label}</div>
                       <div className="text-mask-snap">
-                        <div className="text-snap-large first-layer">{sec.texts[0]}</div>
+                        <div className="text-snap-large first-layer">{isToggled ? sec.texts[1] : sec.texts[0]}</div>
                         <div className="text-snap-large second-layer">{sec.texts[1]}</div>
                       </div>
                     </div>

@@ -1,10 +1,12 @@
+@import './fonts.scss'; 
+
 $toggle-width: 280px;
 $circle-size: 60px;
 $padding: 11px;
 $circle-toggled-left: calc(#{$toggle-width} - #{$circle-size} - #{$padding});
 
 .section.makes {
-  background-color: #ebe8db;
+  background: url(../img/ivory_bg.jpg);
   color: #2a2119;
   padding: 2rem 0;
   box-sizing: border-box;
@@ -12,7 +14,7 @@ $circle-toggled-left: calc(#{$toggle-width} - #{$circle-size} - #{$padding});
   height: 100vh;
   z-index: 22;
   position: relative;
-  
+  font-family: 'KIMM';
   .belt {
       width: 100%;
       height: 4rem; // 띠지 높이 조절
@@ -46,21 +48,38 @@ $circle-toggled-left: calc(#{$toggle-width} - #{$circle-size} - #{$padding});
     .swiper {
       width: 100%;
       height: 100%;
+      position: relative;
     }
-
     .swiper-slide {
       display: flex;
       justify-content: center;
       align-items: center;
     }
+    .swiper-scrollbar {
+        position: absolute;
+        bottom: 3.3rem;
+        left: 3rem;
+        right: 0;
+        width: 95%;
+        height: .5rem;
+        background: rgba(255, 255, 255, 0);
+        z-index: 10;
+
+        &-drag {
+          background: #F6FF00;
+        }
+
+    }
+
 
     .master-snap-section {
-      width: 90%;
-      height: 90%;
+      width: 95%;
+      height: 88%;
       position: relative;
       overflow: hidden;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      
 
       &._1 {
         .image-cover {
@@ -90,7 +109,8 @@ $circle-toggled-left: calc(#{$toggle-width} - #{$circle-size} - #{$padding});
               line-height: 1.4;
               white-space: pre-line;
               text-align: center;
-              margin-top: 70px;
+              margin-top: 7rem;
+              margin-bottom: 20rem;
             }
 
             .text-mask-snap {
@@ -179,7 +199,7 @@ $circle-toggled-left: calc(#{$toggle-width} - #{$circle-size} - #{$padding});
                 border-radius: 50%;
                 background-color: orangered;
                 position: absolute;
-                top: 5px;
+                top: .2rem;
                 left: $padding;
                 transition: left 0.4s ease;
               }
@@ -249,7 +269,7 @@ $circle-toggled-left: calc(#{$toggle-width} - #{$circle-size} - #{$padding});
 
               .text-snap-large {
               
-    margin-top: 200px;
+                margin-top: 200px;
                 font-size: 12rem;
                 font-weight: 900;
                 line-height: 1;
@@ -326,7 +346,7 @@ $circle-toggled-left: calc(#{$toggle-width} - #{$circle-size} - #{$padding});
                 border-radius: 50%;
                 background-color: orangered;
                 position: absolute;
-                top: 5px;
+                top: .2rem;
                 left: $padding;
                 transition: left 0.4s ease;
               }
@@ -371,6 +391,7 @@ $circle-toggled-left: calc(#{$toggle-width} - #{$circle-size} - #{$padding});
           top: 0;
           left: 0;
           right: 0;
+          bottom: 0;
           padding: 1.5rem;
           background: linear-gradient(180deg, rgba(42, 33, 25, 0.8), transparent);
 
@@ -378,12 +399,16 @@ $circle-toggled-left: calc(#{$toggle-width} - #{$circle-size} - #{$padding});
             color: #F6FF00;
 
             .label {
+              position: absolute;
+              top: 0;
+              right: 20rem;
               font-weight: 700;
               font-size: 1.5rem;
               line-height: 1.4;
               white-space: pre-line;
               text-align: center;
-              margin-top: 70px;
+              margin-top: 6rem;
+              margin-bottom: 15rem;
             }
 
             .text-mask-snap {
@@ -396,6 +421,9 @@ $circle-toggled-left: calc(#{$toggle-width} - #{$circle-size} - #{$padding});
                 transition: opacity 0.3s ease;
                 text-align: center;
                 margin-top: 5px;
+                position: absolute;
+                top: 30rem;
+                left: 15rem;
 
                 &.first-layer {
                   opacity: 1;
@@ -410,7 +438,7 @@ $circle-toggled-left: calc(#{$toggle-width} - #{$circle-size} - #{$padding});
         }
         .sectionTayler .text-wrap-snap {
           .label {
-            margin-top: 120px; // label을 더 아래로
+            margin-top: 10rem; // label을 더 아래로
           }
           .text-mask-snap {
             margin-top: 20px; // texts를 label보다 위로
@@ -472,7 +500,7 @@ $circle-toggled-left: calc(#{$toggle-width} - #{$circle-size} - #{$padding});
                 border-radius: 50%;
                 background-color: orangered;
                 position: absolute;
-                top: 5px;
+                top: .2rem;
                 left: $padding;
                 transition: left 0.4s ease;
               }
@@ -502,5 +530,10 @@ $circle-toggled-left: calc(#{$toggle-width} - #{$circle-size} - #{$padding});
         }
       }
     }
-  }
+
+
+
+    
+  
+}
 }

@@ -41,14 +41,14 @@ const Brand = () => {
         </section>
 
         <section className="three">
-          <div className="banner_3"><img src={process.env.PUBLIC_URL + "/img/MOODIC/moodic_text (3).png"} alt="배너3" /></div>
+          <div className="banner_3"><img src={process.env.PUBLIC_URL + "/img/MOODIC/moodic_text (4).png"} alt="배너3" /></div>
           <img src={process.env.PUBLIC_URL + "/img/MOODIC/orange_icon.png"} alt="" className="o" />
           <img src={process.env.PUBLIC_URL + "/img/MOODIC/purple_icon.png"} alt="" className="pp" />
         </section>
 
-        <section className="four">
+        {/* <section className="four">
           <div className="banner_4"><img src={process.env.PUBLIC_URL + "/img/MOODIC/moodic_text (4).png"} alt="배너4" /></div>
-        </section>
+        </section> */}
       </main>
     </div>
   );

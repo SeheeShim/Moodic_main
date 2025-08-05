@@ -21,7 +21,7 @@ const PlayerData = [
   },
   {
     label: 'DAY6',
-    texts: ['Congratulations', 'DANCE DANCE'],
+    texts: ['반드시 웃는다', '예뻤어'],
     buttonColor: 'rgb(255, 133, 47)',
     buttonLabel: 'Make it fun',
     buttonLabelAlt: 'BOOOOOOOOM',

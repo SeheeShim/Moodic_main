@@ -43,9 +43,14 @@ const Main = () => {
       <div className="mainTextImg">
         <div className="mainText">
           <h1 className="mainTitle">What's your mood today?</h1>
-          <p className="mainSubtitle">Find it with <strong>MoodFlow</strong>.<br />
-            <span>Tap an album and slide through stories that flow with the music.<FaArrowPointer className='pointer'/></span>
-          </p>
+          <p className="mainSubtitle">Find it with <strong>MoodFlow</strong>.</p>
+          <div className='mainSubtitle2'>
+            <span>
+              Tap an album 
+                <br /> and slide through stories that flow with the music.
+            </span>
+            <FaArrowPointer className='pointer'/>
+          </div>
         </div>
 
         {/* 오늘의 Mood는 어떤가요?

@@ -1,3 +1,4 @@
+@import './fonts.scss'; 
 
 .main {
   width: 100%;
@@ -66,30 +67,42 @@
     flex-direction: column;
     justify-content: center;
     gap: 4rem;
+    
 
     .mainTitle {
       font-size: 4rem;
-      font-weight: 700;
+      font-family: 'KIMM';
+      font-weight: 800;
       color: #000;
       line-height: 1.2;
+      margin-bottom: 4rem;
     }
 
     .mainSubtitle {
       font-size: 1.6rem;
+      font-family: 'KIMM';
       font-weight: 400;
-      color: #333;
-      line-height: 1.5;
+      color: #000;
+      line-height: 1;
+    }  
+      
+    .mainSubtitle2{
+      position: relative;
       span{
-        margin-top: 10rem;
-        font-size: 1rem;
-        .pointer{
-          margin-top: .2rem;
+        margin-top: 4rem;
+        font-family: 'KIMM';
+        font-weight: 800;
+        }
+      .pointer{
+          position: absolute;
+          top: 1.7rem;
+          right: 1rem;
           font-size: 1.2rem;
           transform: rotate(90deg);
-        }
-
-      }
-    }
+          
+        }  
+    }  
+    
   }
 
   .mainImg_slider {
